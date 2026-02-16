@@ -15,6 +15,7 @@ dependencies {
 
     implementation(libs.jsoup)
     implementation(libs.commons.io)
+    implementation("org.apache.ivy:ivy:2.5.3")
 
     testCompileOnly(libs.lombok)
     testAnnotationProcessor(libs.lombok)

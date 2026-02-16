@@ -4,28 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/QtSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/qmlSettings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/build.gradle.kts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/Artefact.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFileType.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactMetaData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/model/dependency/Dependency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="impl MavenArtefactFinder">
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/DependencyResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/Artefact.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFile.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/dependency/Dependency.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/dependency/Dependency.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,10 +67,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Enum" />
         <option value="Record" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -92,16 +88,46 @@
       </list>
     </option>
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/LinkOption.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/Path.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/Paths.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/util/regex/Pattern.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/module/descriptor/DependencyDescriptor.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/DownloadOptions.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/IvyNode.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/ResolveEngine.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/settings/IvySettings.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SimpleSortEngineSettings.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SortEngine.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SortEngineSettings.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/circular/CircularDependencyStrategy.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/repository/Repository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/repository/url/URLRepository.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/BasicResolver.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/IBiblioResolver.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/RepositoryResolver.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MacroExpansionManager">
+    <option name="directoryName" value="UHbXeZrU" />
   </component>
   <component name="OptimizeOnSaveOptions">
     <option name="myRunOnSave" value="true" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="2" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="39Xjq2PViL3orjXRrFAMVRgiAMb" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -110,6 +136,9 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor": "Run",
+    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor": "Debug",
+    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor": "Debug",
+    "Gradle.Загрузить исходники.executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.cidr.known.project.marker": "true",
@@ -121,6 +150,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "node.js.selected.package.eslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
     "project.structure.last.edited": "Модули",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
@@ -134,19 +164,27 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.MavenArtefactFinderImpl">
     <configuration name="MavenArtefactFinderImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="MavenArtefactFinderImpl" />
+      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl" />
       <module name="RepoManager.maven-manager.main" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Приложение.MavenArtefactFinderImpl" />
-      </list>
-    </recent_temporary>
+    <configuration name="MavenDependencyFinderImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl" />
+      <module name="RepoManager.maven-manager.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="ru.bolilyivs.dependency.manager.resolver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -162,11 +200,84 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1770559116607</updated>
-      <workItem from="1770849500476" duration="4231000" />
+      <workItem from="1770849500476" duration="14350000" />
+      <workItem from="1770882983819" duration="25279000" />
+      <workItem from="1770931810823" duration="4186000" />
+      <workItem from="1771002477692" duration="268000" />
+      <workItem from="1771085124549" duration="98000" />
+      <workItem from="1771261289364" duration="80000" />
+      <workItem from="1771261389312" duration="701000" />
+      <workItem from="1771262168179" duration="465000" />
+      <workItem from="1771262692066" duration="9000" />
+      <workItem from="1771276960960" duration="662000" />
     </task>
+    <task id="LOCAL-00001" summary="init">
+      <option name="closed" value="true" />
+      <created>1770853845358</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770853845358</updated>
+    </task>
+    <task id="LOCAL-00002" summary="impl MavenArtefactFinder">
+      <option name="closed" value="true" />
+      <created>1770853891617</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770853891617</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="init" />
+    <MESSAGE value="impl MavenArtefactFinder" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl MavenArtefactFinder" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/parser/m2/PomModuleDescriptorParser.java</url>
+          <line>189</line>
+          <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/AbstractPatternsBasedResolver.java</url>
+          <line>130</line>
+          <option name="timeStamp" value="17" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java</url>
+          <line>22</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>
