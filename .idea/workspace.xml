@@ -4,24 +4,42 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="impl MavenArtefactFinder">
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/DependencyResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java" afterDir="false" />
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="impl tree dependency">
+      <change afterPath="$PROJECT_DIR$/readme.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/openapi.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/DependencyDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/RepoDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/model/Repo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/model/RepoType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/repository/RepoRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/AndroidProjectSystem.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/build.gradle.kts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/MavenArtefactFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/Artefact.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFile.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/artefact/ArtefactMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/model/dependency/Dependency.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/dependency/Dependency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/dependency/Dependency.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/dependency/Dependency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/DependencyResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/DependencyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle.kts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,13 +67,27 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="RepoManager" type="f1a62948:ProjectNode" />
-                <item name="maven-manager" type="2d1252cf:ModuleNode" />
+                <item name="repo-server" type="2d1252cf:ModuleNode" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="RepoManager" type="f1a62948:ProjectNode" />
-                <item name="maven-manager" type="2d1252cf:ModuleNode" />
+                <item name="repo-server" type="2d1252cf:ModuleNode" />
                 <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RepoManager" type="f1a62948:ProjectNode" />
+                <item name="repo-server" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="application" type="c8890929:TasksNode$1" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RepoManager" type="f1a62948:ProjectNode" />
+                <item name="repo-server" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
             </expand>
             <select />
@@ -67,10 +99,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Enum" />
-        <option value="Record" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Record" />
+        <option value="Enum" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,34 +112,7 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="C:\Users\Shenlong\.gradle\wrapper\dists\gradle-9.3.1-bin\23ovyewtku6u96viwx3xl3oks\gradle-9.3.1" javaHome="C:\Dev\bellsoft-liberica-vm-full-openjdk25-25.0.1" gradleVersion="9.3.1">
-    <option name="jvmArguments">
-      <list>
-        <option value="-Didea.compose.hot-reload=true" />
-        <option value="-Didea.compose.hot-reload.version=2" />
-      </list>
-    </option>
-  </component>
-  <component name="HighlightingSettingsPerFile">
-    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/LinkOption.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/Path.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/nio/file/Paths.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://C:/Dev/bellsoft-liberica-vm-full-openjdk25-25.0.1/lib/src.zip!/java.base/java/util/regex/Pattern.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/module/descriptor/DependencyDescriptor.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/DownloadOptions.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/IvyNode.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/resolve/ResolveEngine.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/settings/IvySettings.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SimpleSortEngineSettings.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SortEngine.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/core/sort/SortEngineSettings.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/circular/CircularDependencyStrategy.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/repository/Repository.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/repository/url/URLRepository.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/BasicResolver.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/IBiblioResolver.java" root0="SKIP_INSPECTION" />
-    <setting file="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.apache.ivy/ivy/2.5.3/b20a52f0159e90c5f0209b9f09e6b816a144c28c/ivy-2.5.3-sources.jar!/org/apache/ivy/plugins/resolver/RepositoryResolver.java" root0="SKIP_INSPECTION" />
-  </component>
+  <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks/gradle-9.3.1" javaHome="$USER_HOME$/.jdks/graalvm-jdk-25" gradleVersion="9.3.1" />
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
   </component>
@@ -133,63 +138,202 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor": "Run",
-    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor": "Debug",
-    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor": "Debug",
-    "Gradle.Загрузить исходники.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Модули",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "preferences.pluginManager",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build RepoManager.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor&quot;: &quot;Debug&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Загрузить исходники.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.repo-server-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Micronaut.RepoServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/shenlong/IdeaProjects/RepoManager&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/shenlong/IdeaProjects/RepoManager/maven-server/src/main/java/ru/bolilyivs/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.bolilyivs.server.service" />
       <recent name="" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/repo-server" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.MavenArtefactFinderImpl">
-    <configuration name="MavenArtefactFinderImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl" />
-      <module name="RepoManager.maven-manager.main" />
+  <component name="RunManager" selected="Micronaut.RepoServerApplication">
+    <configuration name="RepoManager [:maven-manager:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":maven-manager:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RepoManager [:repo-server:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":repo-server:build" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RepoManager [:repo-server:clean]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":repo-server:clean" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>false</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="repo-server-1.0-SNAPSHOT.jar" type="JarApplication" temporary="true">
+      <option name="JAR_PATH" value="$PROJECT_DIR$/repo-server/build/libs/repo-server-1.0-SNAPSHOT.jar" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="RepoManager" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MavenDependencyFinderImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl" />
-      <module name="RepoManager.maven-manager.main" />
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="RepoManager" />
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Application (1)" type="MicronautRunConfigurationType" factoryName="Micronaut" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.Application" />
+      <module name="RepoManager.repo-server.main" />
+      <option name="alternativeJrePath" />
+      <option name="alternativeJrePathEnabled" value="false" />
+      <option name="mainClass" value="example.Application" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="vmParameters" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="MicronautRunConfigurationType" factoryName="Micronaut" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="example.Application" />
+      <module name="RepoManager.maven-server.main" />
+      <option name="alternativeJrePath" />
+      <option name="alternativeJrePathEnabled" value="false" />
+      <option name="mainClass" value="example.Application" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="vmParameters" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RepoServerApplication" type="MicronautRunConfigurationType" factoryName="Micronaut" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.server.RepoServerApplication" />
+      <module name="RepoManager.repo-server.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="ru.bolilyivs.dependency.manager.resolver.*" />
+          <option name="PATTERN" value="ru.bolilyivs.server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="alternativeJrePath" />
+      <option name="alternativeJrePathEnabled" value="false" />
+      <option name="mainClass" value="ru.bolilyivs.server.RepoServerApplication" />
+      <option name="passParentEnvs" value="true" />
+      <option name="programParameters" />
+      <option name="vmParameters" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Micronaut.RepoServerApplication" />
+        <item itemvalue="Gradle.RepoManager [:repo-server:build]" />
+        <item itemvalue="JAR Application.repo-server-1.0-SNAPSHOT.jar" />
+        <item itemvalue="Gradle.RepoManager [:maven-manager:build]" />
+        <item itemvalue="Gradle.RepoManager [:repo-server:clean]" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.30387.90" />
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
       </set>
     </attachedChunks>
   </component>
@@ -209,7 +353,13 @@
       <workItem from="1771261389312" duration="701000" />
       <workItem from="1771262168179" duration="465000" />
       <workItem from="1771262692066" duration="9000" />
-      <workItem from="1771276960960" duration="662000" />
+      <workItem from="1771276960960" duration="1124000" />
+      <workItem from="1771761966528" duration="772000" />
+      <workItem from="1771883926765" duration="138000" />
+      <workItem from="1775038931520" duration="5479000" />
+      <workItem from="1775601692823" duration="1622000" />
+      <workItem from="1775605896515" duration="2102000" />
+      <workItem from="1776601507173" duration="1005000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -227,11 +377,26 @@
       <option name="project" value="LOCAL" />
       <updated>1770853891617</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="impl tree dependency">
+      <option name="closed" value="true" />
+      <created>1771277775272</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1771277775272</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="dependencySupport" implementationName="executable:docker" />
+    <option featureType="dependencySupport" implementationName="java:jakarta.validation:jakarta.validation-api" />
+    <option featureType="dependencySupport" implementationName="java:io.projectreactor:reactor-core" />
+    <option featureType="dependencySupport" implementationName="java:io.micronaut:micronaut-core" />
+    <option featureType="dependencySupport" implementationName="java:org.projectlombok:lombok" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -247,7 +412,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="init" />
     <MESSAGE value="impl MavenArtefactFinder" />
-    <option name="LAST_COMMIT_MESSAGE" value="impl MavenArtefactFinder" />
+    <MESSAGE value="impl tree dependency" />
+    <option name="LAST_COMMIT_MESSAGE" value="impl tree dependency" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -264,7 +430,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java</url>
-          <line>20</line>
+          <line>17</line>
           <option name="timeStamp" value="31" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -274,8 +440,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java</url>
-          <line>90</line>
+          <line>119</line>
           <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/RepoServerApplication.java</url>
+          <line>13</line>
+          <option name="timeStamp" value="37" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java</url>
+          <line>24</line>
+          <option name="timeStamp" value="38" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

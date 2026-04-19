@@ -26,23 +26,35 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+/**
+ * Реализация интерфейса {@link DependencyResolver} с использованием Apache Ivy для разрешения зависимостей.
+ */
 public class IvyResolver implements DependencyResolver {
 
-    private final String rootUrl;
-    private final String name;
-    private ResolveEngine resolveEngine;
-    private IvySettings ivySettings;
-    private URLResolver urlResolver;
+    private final String rootUrl; // URL корневого репозитория
+    private final String name; // Имя resolver'а
+    private ResolveEngine resolveEngine; // Экземпляр ResolveEngine
+    private IvySettings ivySettings; // Настройки Ivy
+    private URLResolver urlResolver; // Резолвер для работы с URL
 
+    /**
+     * Конструктор класса {@link IvyResolver}.
+     *
+     * @param rootUrl URL корневого репозитория
+     * @param name    Имя resolver'а
+     */
     public IvyResolver(String rootUrl, String name) {
         this.rootUrl = rootUrl;
         this.name = name;
         init();
     }
 
+    /**
+     * Инициализация resolver'а.
+     */
     private void init() {
-        urlResolver = createUrlResolver();
-        ivySettings = createIvySettings(urlResolver);
+        urlResolver = createUrlResolver(); // Создание URL резолвера
+        ivySettings = createIvySettings(urlResolver); // Создание настроек Ivy
 
         EventManager eventManager = new EventManager();
         SimpleSortEngineSettings ss = new SimpleSortEngineSettings();
@@ -53,6 +65,11 @@ public class IvyResolver implements DependencyResolver {
         resolveEngine = new ResolveEngine(ivySettings, eventManager, sortEngine);
     }
 
+    /**
+     * Создание URL резолвера.
+     *
+     * @return URL резолвер
+     */
     private URLResolver createUrlResolver() {
         IBiblioResolver br = new IBiblioResolver();
         br.setRoot(rootUrl);
@@ -63,6 +80,12 @@ public class IvyResolver implements DependencyResolver {
         return br;
     }
 
+    /**
+     * Создание настроек Ivy.
+     *
+     * @param urlResolver URL резолвер
+     * @return Настройки Ivy
+     */
     private IvySettings createIvySettings(URLResolver urlResolver) {
         IvySettings ivySettings = new IvySettings();
         ivySettings.setDefaultCache(new File("./ivy/%s/cache".formatted(name)));
@@ -71,6 +94,12 @@ public class IvyResolver implements DependencyResolver {
         return ivySettings;
     }
 
+    /**
+     * Резолв зависимостей.
+     *
+     * @param metaData Метаданные артефакта
+     * @return Разрешенная зависимость
+     */
     @SneakyThrows
     public Dependency resolver(ArtefactMetaData metaData) {
         ModuleRevisionId ri = ModuleRevisionId.newInstance(
@@ -91,6 +120,12 @@ public class IvyResolver implements DependencyResolver {
         return mapDependency(ivyDeps);
     }
 
+    /**
+     * Картировка Ivy зависимости.
+     *
+     * @param ivyNode Ivy узел
+     * @return Ivy зависимость
+     */
     private IvyDependency mapIvyDependency(IvyNode ivyNode) {
         ArtefactMetaData metaData = mapArtefactMetaData(ivyNode.getResolvedId());
         if (Objects.isNull(ivyNode.getDescriptor())) {
@@ -103,6 +138,12 @@ public class IvyResolver implements DependencyResolver {
         return new IvyDependency(metaData, deps);
     }
 
+    /**
+     * Картировка зависимостей.
+     *
+     * @param ivyDependencies Список Ivy зависимостей
+     * @return Зависимость
+     */
     private Dependency mapDependency(List<IvyDependency> ivyDependencies) {
         Map<ArtefactMetaData, IvyDependency> mapDeps = ivyDependencies.stream()
                 .collect(Collectors.toMap(IvyDependency::metaData, Function.identity()));
@@ -110,6 +151,13 @@ public class IvyResolver implements DependencyResolver {
         return mapDependency(root, mapDeps);
     }
 
+    /**
+     * Рекурсивная картировка зависимости.
+     *
+     * @param node    Ivy зависимость
+     * @param mapDeps Карта зависимостей по метаданным артефактов
+     * @return Зависимость
+     */
     private Dependency mapDependency(IvyDependency node, Map<ArtefactMetaData, IvyDependency> mapDeps) {
         List<Dependency> deps = node.dependenies().stream()
                 .map(iDepMetaData -> mapDeps.getOrDefault(iDepMetaData, null))
@@ -120,6 +168,12 @@ public class IvyResolver implements DependencyResolver {
         return new Dependency(node.metaData(), deps);
     }
 
+    /**
+     * Картировка метаданных артефакта.
+     *
+     * @param moduleRevisionId Идентификатор модуля
+     * @return Метаданные артефакта
+     */
     private ArtefactMetaData mapArtefactMetaData(ModuleRevisionId moduleRevisionId) {
         return new ArtefactMetaData(
                 moduleRevisionId.getOrganisation(),
