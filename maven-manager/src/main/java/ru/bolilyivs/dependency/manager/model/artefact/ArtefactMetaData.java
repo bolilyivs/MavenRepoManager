@@ -18,6 +18,10 @@ public record ArtefactMetaData(
         return "%s/%s/%s".formatted(groupId.replace(".", "/"), artifactId, version);
     }
 
+    public String getFilename(ArtefactFileType type) {
+        return "%s-%s%s".formatted(artifactId, version, type.getExtension());
+    }
+
     @Override
     public String toString() {
         return "%s:%s:%s".formatted(this.groupId, this.artifactId, this.version);

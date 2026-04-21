@@ -8,11 +8,11 @@ import java.util.List;
 
 @RequiredArgsConstructor
 public enum ArtefactFileType {
-    JAVADOC("javadoc.jar"),
-    SOURCES_JAR("sources.jar"),
+    JAVADOC("-javadoc.jar"),
+    SOURCES_JAR("-sources.jar"),
     JAR(".jar"),
-    MODULE("module"),
-    POM("pom");
+    MODULE(".module"),
+    POM(".pom");
 
     @Getter
     private final String extension;

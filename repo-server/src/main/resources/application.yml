@@ -7,6 +7,11 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
+      repos:
+
+        enabled: true
+        mapping: "/repo/**"
+        paths: "file:/home/shenlong/repos/"
   openapi:
     views:
       swagger-ui:
