@@ -7,11 +7,11 @@ import ru.bolilyivs.server.data.model.RepoType;
 @Serdeable
 @Schema(name = "Repo", description = "Репозиторий")
 public record RepoDto(
-        @Schema(description = "Название")
+        @Schema(description = "Название", example = "central")
         String name,
-        @Schema(description = "Адрес")
+        @Schema(description = "Адрес", example = "https://repo1.maven.org/maven2")
         String url,
-        @Schema(description = "Тип репозитория")
+        @Schema(description = "Тип репозитория", example = "MAVEN")
         RepoType repoType
 ) {
 }

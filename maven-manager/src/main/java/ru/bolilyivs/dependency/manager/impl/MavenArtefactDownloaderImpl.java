@@ -24,7 +24,7 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
     @Override
     @SneakyThrows
     public String downloadArtefactToFile(Repository repository, ArtefactFile artefactFile) {
-        Path targetPath = createTargetPath(artefactFile);
+        Path targetPath = createTargetPath(repository, artefactFile);
 
         try (InputStream is = downloadArtefact(repository, artefactFile)) {
             Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
@@ -62,8 +62,8 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
     }
 
     @SneakyThrows
-    private Path createTargetPath(ArtefactFile artefactFile) {
-        Path targetPath = Path.of(localRootRepoDir, artefactFile.path().toString().replace("\\", "/"));
+    private Path createTargetPath(Repository repository, ArtefactFile artefactFile) {
+        Path targetPath = Path.of(localRootRepoDir, repository.name(), artefactFile.path().toString().replace("\\", "/"));
         Files.createDirectories(targetPath.getParent());
         return targetPath;
     }

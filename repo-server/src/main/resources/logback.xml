@@ -6,7 +6,7 @@
     </appender>
 
     <!-- Set the root level to ERROR -->
-    <root level="ERROR">
+    <root level="INFO">
         <appender-ref ref="STDOUT"/>
     </root>
 </configuration>

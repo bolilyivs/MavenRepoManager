@@ -30,7 +30,8 @@ logger:
   levels:
     root: ERROR
     io.micronaut: ERROR
+    ru.bolilyivs: INFO
 
 app:
-  cacheDir: "/home/shenlong/repos/cache/"
-  rootRepoDir: "/home/shenlong/repos/root/"
+  cacheDir: "J:/test/repos/cache/"
+  rootRepoDir: "J:/test/repos/root/"
