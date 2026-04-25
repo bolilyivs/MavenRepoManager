@@ -7,11 +7,6 @@ micronaut:
       swagger-ui:
         paths: classpath:META-INF/swagger/views/swagger-ui
         mapping: /swagger-ui/**
-      repos:
-
-        enabled: true
-        mapping: "/repo/**"
-        paths: "file:/home/shenlong/repos/"
   openapi:
     views:
       swagger-ui:
@@ -31,3 +26,11 @@ jpa:
         hbm2ddl:
           auto: update
         show_sql: true
+logger:
+  levels:
+    root: ERROR
+    io.micronaut: ERROR
+
+app:
+  cacheDir: "/home/shenlong/repos/cache/"
+  rootRepoDir: "/home/shenlong/repos/root/"
