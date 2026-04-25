@@ -4,22 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="improve download">
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/ArtefactDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/FindController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/FindService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/FindServiceImpl.java" afterDir="false" />
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="improve server">
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/UploadController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/UploadService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/UploadServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -81,8 +70,8 @@
       <list>
         <option value="Record" />
         <option value="Enum" />
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -91,8 +80,26 @@
     <option name="myRunOnSave" value="true" />
   </component>
   <component name="Git.Settings">
+    <option name="PUSH_TAGS">
+      <GitPushTagMode>
+        <option name="argument" value="--tags" />
+        <option name="title" value="All" />
+      </GitPushTagMode>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "bolilyivs"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/bolilyivs/MavenRepoManager.git",
+    "accountId": "42fadab8-e8e0-41f2-a48c-c6af77ae7207"
+  }
+}]]></component>
   <component name="GradleScriptDefinitionsStorage" workingDir="$PROJECT_DIR$" gradleHome="$USER_HOME$/.gradle/wrapper/dists/gradle-9.3.1-bin/23ovyewtku6u96viwx3xl3oks/gradle-9.3.1" javaHome="$USER_HOME$/.jdks/graalvm-jdk-25" gradleVersion="9.3.1" />
   <component name="KotlinCodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
@@ -144,7 +151,7 @@
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImpl.main()].executor": "Debug",
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.ivy.IvyInstance.main()].executor": "Debug",
     "Gradle.RepoManager [:maven-manager:testClasses].executor": "Run",
-    "Gradle.RepoManager [:repo-server:build].executor": "Run",
+    "Gradle.RepoManager [:repo-server:build].executor": "Debug",
     "Gradle.RepoManager [:repo-server:clean].executor": "Run",
     "Gradle.RepoManager [:repo-server:run].executor": "Run",
     "Gradle.RepoManager [:repo-server:testClasses].executor": "Run",
@@ -392,7 +399,7 @@
       <workItem from="1776949625533" duration="667000" />
       <workItem from="1776952137365" duration="1225000" />
       <workItem from="1777140904364" duration="9010000" />
-      <workItem from="1777153834160" duration="2352000" />
+      <workItem from="1777153834160" duration="3811000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -458,7 +465,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777149782799</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="improve server">
+      <option name="closed" value="true" />
+      <created>1777156301229</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777156301229</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -503,7 +518,8 @@
     <MESSAGE value="add getRepo" />
     <MESSAGE value="add downloadManager" />
     <MESSAGE value="improve download" />
-    <option name="LAST_COMMIT_MESSAGE" value="improve download" />
+    <MESSAGE value="improve server" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve server" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
