@@ -4,15 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="add downloadManager">
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="improve download">
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/ArtefactDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/FindController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/FindService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/FindServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/RepoDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/RepoDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImplTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadService.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/resources/logback.xml" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/resources/logback.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,24 +43,6 @@
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="RepoManager" type="f1a62948:ProjectNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RepoManager" type="f1a62948:ProjectNode" />
-                <item name="maven-manager" type="2d1252cf:ModuleNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RepoManager" type="f1a62948:ProjectNode" />
-                <item name="maven-manager" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-              </path>
-              <path>
-                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
-                <item name="RepoManager" type="f1a62948:ProjectNode" />
-                <item name="maven-manager" type="2d1252cf:ModuleNode" />
-                <item name="Tasks" type="e4a08cd1:TasksNode" />
-                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -93,8 +82,8 @@
         <option value="Record" />
         <option value="Enum" />
         <option value="Interface" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -189,8 +178,8 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="ru.bolilyivs.dependency.manager" />
       <recent name="ru.bolilyivs.server.service" />
+      <recent name="ru.bolilyivs.dependency.manager" />
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -213,7 +202,7 @@
     </key>
   </component>
   <component name="RunManager" selected="Micronaut.RepoServerApplication">
-    <configuration name="RepoManager [:maven-manager:classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RepoManager [:maven-manager:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -224,7 +213,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":maven-manager:classes" />
+            <option value=":maven-manager:build" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -238,7 +227,7 @@
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
       <method v="2" />
     </configuration>
-    <configuration name="RepoManager [:maven-manager:testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="RepoManager [:maven-manager:classes]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -249,7 +238,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":maven-manager:testClasses" />
+            <option value=":maven-manager:classes" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -362,9 +351,9 @@
       <list>
         <item itemvalue="Micronaut.RepoServerApplication" />
         <item itemvalue="Gradle.RepoManager [:repo-server:build]" />
+        <item itemvalue="Gradle.RepoManager [:maven-manager:build]" />
         <item itemvalue="Gradle.RepoManager [:maven-manager:classes]" />
         <item itemvalue="Gradle.RepoManager [:repo-server:testClasses]" />
-        <item itemvalue="Gradle.RepoManager [:maven-manager:testClasses]" />
       </list>
     </recent_temporary>
   </component>
@@ -402,7 +391,8 @@
       <workItem from="1776808298712" duration="3235000" />
       <workItem from="1776949625533" duration="667000" />
       <workItem from="1776952137365" duration="1225000" />
-      <workItem from="1777140904364" duration="8824000" />
+      <workItem from="1777140904364" duration="9010000" />
+      <workItem from="1777153834160" duration="2352000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -460,7 +450,15 @@
       <option name="project" value="LOCAL" />
       <updated>1777147414242</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="improve download">
+      <option name="closed" value="true" />
+      <created>1777149782799</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777149782799</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +502,8 @@
     <MESSAGE value="add download service" />
     <MESSAGE value="add getRepo" />
     <MESSAGE value="add downloadManager" />
-    <option name="LAST_COMMIT_MESSAGE" value="add downloadManager" />
+    <MESSAGE value="improve download" />
+    <option name="LAST_COMMIT_MESSAGE" value="improve download" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -541,16 +540,21 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java</url>
-          <line>79</line>
+          <line>73</line>
           <option name="timeStamp" value="48" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java</url>
-          <line>53</line>
+          <line>47</line>
           <properties>
             <option name="lambda-ordinal" value="-1" />
           </properties>
           <option name="timeStamp" value="50" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/FindController.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="51" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -26,6 +26,10 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
     public String downloadArtefactToFile(Repository repository, ArtefactFile artefactFile) {
         Path targetPath = createTargetPath(repository, artefactFile);
 
+        if (Files.exists(targetPath)) {
+            return targetPath.toAbsolutePath().toString();
+        }
+
         try (InputStream is = downloadArtefact(repository, artefactFile)) {
             Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
         }

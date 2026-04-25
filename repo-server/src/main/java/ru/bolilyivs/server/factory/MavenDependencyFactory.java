@@ -9,6 +9,7 @@ import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
 import ru.bolilyivs.dependency.manager.impl.MavenArtefactDownloaderImpl;
 import ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImpl;
 import ru.bolilyivs.dependency.manager.impl.MavenDependencyFinderImpl;
+import ru.bolilyivs.dependency.manager.ivy.MavenDependencyMapper;
 import ru.bolilyivs.dependency.manager.ivy.impl.MavenDependencyMapperImpl;
 import ru.bolilyivs.server.config.AppConfig;
 
@@ -19,13 +20,9 @@ public class MavenDependencyFactory {
     private final AppConfig appConfig;
 
     @Singleton
-    public MavenDependencyMapperImpl mavenDependencyMapper() {
-        return new MavenDependencyMapperImpl();
-    }
-
-    @Singleton
     public MavenDependencyFinder mavenDependencyFinder() {
-        return new MavenDependencyFinderImpl(mavenDependencyMapper());
+        MavenDependencyMapper mavenDependencyMapper = new MavenDependencyMapperImpl();
+        return new MavenDependencyFinderImpl(mavenDependencyMapper, appConfig.getCacheDir());
     }
 
     @Singleton
