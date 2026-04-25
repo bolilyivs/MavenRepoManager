@@ -1,8 +1,10 @@
 package ru.bolilyivs.server.rest;
 
 import io.micronaut.http.annotation.*;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.server.data.dto.RepoDto;
+import ru.bolilyivs.server.data.dto.RepoUpdateDto;
 import ru.bolilyivs.server.service.RepoService;
 
 import java.util.List;
@@ -16,6 +18,7 @@ import java.util.List;
 
 @Controller("/api/v1/repo/manager")
 @RequiredArgsConstructor
+@Tag(name = "ManagerController")
 public class RepoManagerController {
 
     private final RepoService repoService;
@@ -25,18 +28,18 @@ public class RepoManagerController {
         return repoService.get(id);
     }
 
-    @Get(uri = "/")
+    @Get
     public List<RepoDto> list() {
         return repoService.list();
     }
 
-    @Post(uri = "/")
+    @Post
     public void create(@Body RepoDto repoDto) {
         repoService.create(repoDto);
     }
 
-    @Patch(uri = "/{id}")
-    public void update(@PathVariable String id, @Body RepoDto repoDto) {
+    @Put(uri = "/{id}")
+    public void update(@PathVariable String id, @Body RepoUpdateDto repoDto) {
         repoService.update(id, repoDto);
     }
 

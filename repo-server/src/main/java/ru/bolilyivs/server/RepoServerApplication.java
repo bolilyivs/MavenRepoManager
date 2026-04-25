@@ -8,7 +8,7 @@ import io.swagger.v3.oas.annotations.info.Info;
         info = @Info(
                 title = "Repo Server",
                 version = "0.1",
-                description = "Repo Server"
+                description = "Менеджер репозиториев для артефактов Maven"
         )
 )
 public class RepoServerApplication {

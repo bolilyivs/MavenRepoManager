@@ -4,15 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="add repo manager">
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" afterDir="false" />
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="add download service">
+      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/data/dto/RepoUpdateDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileType.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/RepoServerApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/RepoServerApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/DownloadController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoManagerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/RepoServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,42 +111,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Gradle.Build RepoManager.executor": "Run",
-    "Gradle.Download Sources.executor": "Run",
-    "Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor": "Run",
-    "Gradle.RepoManager [:maven-manager:build].executor": "Run",
-    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor": "Run",
-    "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor": "Run",
-    "Gradle.RepoManager [:repo-server:build].executor": "Run",
-    "Gradle.RepoManager [:repo-server:clean].executor": "Run",
-    "Gradle.RepoManager [:repo-server:run].executor": "Run",
-    "Gradle.Загрузить исходники.executor": "Run",
-    "JAR Application.repo-server-1.0-SNAPSHOT.jar.executor": "Run",
-    "Micronaut.RepoServerApplication.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "master",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/shenlong/IdeaProjects/RepoManager",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "onboarding.tips.debug.path": "/home/shenlong/IdeaProjects/RepoManager/maven-server/src/main/java/ru/bolilyivs/Main.java",
-    "project.structure.last.edited": "Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2",
-    "rearrange.code.on.save": "true",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Gradle.Build RepoManager.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Download Sources.executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:build].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:clean].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.RepoManager [:repo-server:run].executor&quot;: &quot;Run&quot;,
+    &quot;Gradle.Загрузить исходники.executor&quot;: &quot;Run&quot;,
+    &quot;JAR Application.repo-server-1.0-SNAPSHOT.jar.executor&quot;: &quot;Run&quot;,
+    &quot;Micronaut.RepoServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/shenlong/IdeaProjects/RepoManager&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;onboarding.tips.debug.path&quot;: &quot;/home/shenlong/IdeaProjects/RepoManager/maven-server/src/main/java/ru/bolilyivs/Main.java&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;rearrange.code.on.save&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="ru.bolilyivs.server.service" />
@@ -156,6 +156,7 @@
       <recent name="$PROJECT_DIR$/repo-server" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="ru.bolilyivs.server.data.dto" />
       <recent name="ru.bolilyivs.server.rest" />
     </key>
   </component>
@@ -324,7 +325,9 @@
       <workItem from="1775601692823" duration="1622000" />
       <workItem from="1775605896515" duration="2102000" />
       <workItem from="1776601507173" duration="4808000" />
-      <workItem from="1776808298712" duration="3176000" />
+      <workItem from="1776808298712" duration="3235000" />
+      <workItem from="1776949625533" duration="667000" />
+      <workItem from="1776952137365" duration="1225000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -358,7 +361,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776602814797</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="add download service">
+      <option name="closed" value="true" />
+      <created>1776811489921</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1776811489921</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -376,7 +387,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="master" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -387,7 +410,8 @@
     <MESSAGE value="impl MavenArtefactFinder" />
     <MESSAGE value="impl tree dependency" />
     <MESSAGE value="add repo manager" />
-    <option name="LAST_COMMIT_MESSAGE" value="add repo manager" />
+    <MESSAGE value="add download service" />
+    <option name="LAST_COMMIT_MESSAGE" value="add download service" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

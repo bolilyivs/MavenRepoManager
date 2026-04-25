@@ -3,6 +3,7 @@ package ru.bolilyivs.server.rest;
 import io.micronaut.context.annotation.Parameter;
 import io.micronaut.http.annotation.Controller;
 import io.micronaut.http.annotation.Get;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
@@ -13,6 +14,7 @@ import ru.bolilyivs.server.service.RepoService;
 
 @Controller("/api/v1/search/repo")
 @RequiredArgsConstructor
+@Tag(name = "SearchController")
 public class SearchController {
 
     private final MavenDependencyFinder mavenDependencyFinder;

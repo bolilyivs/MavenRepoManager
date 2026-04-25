@@ -3,6 +3,7 @@ package ru.bolilyivs.server.service;
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.server.data.dto.RepoDto;
+import ru.bolilyivs.server.data.dto.RepoUpdateDto;
 import ru.bolilyivs.server.data.model.Repo;
 import ru.bolilyivs.server.data.repository.RepoRepository;
 
@@ -33,9 +34,11 @@ public class RepoServiceImpl implements RepoService {
     }
 
     @Override
-    public void update(String id, RepoDto repoDto) {
-        Repo repo = toRepo(repoDto);
-        repoRepository.save(repo);
+    public void update(String id, RepoUpdateDto repoDto) {
+        Repo repoOrigin = repoRepository.findById(id).orElseThrow();
+        repoOrigin.setUrl(repoDto.url());
+        repoOrigin.setRepoType(repoDto.repoType());
+        repoRepository.save(repoOrigin);
     }
 
     @Override
