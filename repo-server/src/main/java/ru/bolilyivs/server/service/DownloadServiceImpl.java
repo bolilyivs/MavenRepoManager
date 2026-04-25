@@ -53,7 +53,7 @@ public class DownloadServiceImpl implements DownloadService {
                 repoDto.url(),
                 appConfig.getCacheDir()
         );
-        Dependency dependency = mavenDependencyFinder.find(ivyConfig, ArtefactMetaData.of(dependecyString));
+        Dependency dependency = mavenDependencyFinder.resolve(ivyConfig, ArtefactMetaData.of(dependecyString));
         Set<Dependency> dependencySet = dependency.getFlatListDependencies();
         dependencySet.forEach(dep -> tryDownloadArtefact(repoDto, dep));
     }

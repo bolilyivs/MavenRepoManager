@@ -4,22 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="add download service">
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/dependency/IvyDependency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/config/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/RepoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/repo-server/src/main/resources/logback.xml" afterDir="false" />
+    <list default="true" id="9e465468-6a1d-4e15-a085-0ba7925d2729" name="Изменения" comment="add getRepo">
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactDownloader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/Repository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImplTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFileTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaDataTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/libs.versions.toml" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/libs.versions.toml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/build.gradle.kts" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/build.gradle.kts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenArtefactFinder.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinder.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/MavenDependencyFinderImpl.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/DependencyResolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/resolver/IvyResolver.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/factory/MavenDependencyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenDependencyFinderImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/Artefact.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" beforeDir="false" afterPath="$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/model/artefact/ArtefactMetaData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/rest/SearchController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/java/ru/bolilyivs/server/service/DownloadServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/repo-server/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,6 +54,19 @@
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
                 <item name="RepoManager" type="f1a62948:ProjectNode" />
                 <item name="maven-manager" type="2d1252cf:ModuleNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RepoManager" type="f1a62948:ProjectNode" />
+                <item name="maven-manager" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+              </path>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="RepoManager" type="f1a62948:ProjectNode" />
+                <item name="maven-manager" type="2d1252cf:ModuleNode" />
+                <item name="Tasks" type="e4a08cd1:TasksNode" />
+                <item name="build" type="c8890929:TasksNode$1" />
               </path>
               <path>
                 <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
@@ -81,6 +100,7 @@
         <option value="Enum" />
         <option value="Interface" />
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -118,15 +138,28 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Gradle.ArtefactFileTest.ofFilePath.executor": "Debug",
+    "Gradle.ArtefactMetaDataTest.executor": "Run",
+    "Gradle.ArtefactMetaDataTest.ofArtefactFile.executor": "Run",
+    "Gradle.ArtefactMetaDataTest.ofArtefactOneString.executor": "Run",
     "Gradle.Build RepoManager.executor": "Run",
     "Gradle.Download Sources.executor": "Run",
+    "Gradle.MavenArtefactDownloaderTest (1).executor": "Run",
+    "Gradle.MavenArtefactDownloaderTest.downloadArtefact.executor": "Run",
+    "Gradle.MavenArtefactDownloaderTest.downloadArtefactToFile (1).executor": "Run",
+    "Gradle.MavenArtefactDownloaderTest.downloadArtefactToFile.executor": "Run",
+    "Gradle.MavenArtefactDownloaderTest.executor": "Run",
+    "Gradle.MavenArtefactFinderImplTest.find.executor": "Debug",
+    "Gradle.MavenDependencyFinderImplTest.resolve.executor": "Run",
     "Gradle.RepoManager [:maven-manager:MavenArtefactFinderImpl.main()].executor": "Run",
     "Gradle.RepoManager [:maven-manager:buildDependents].executor": "Run",
     "Gradle.RepoManager [:maven-manager:build].executor": "Run",
+    "Gradle.RepoManager [:maven-manager:classes].executor": "Run",
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenArtefactFinderImpl.main()].executor": "Run",
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.MavenDependencyFinderImpl.main()].executor": "Run",
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImpl.main()].executor": "Debug",
     "Gradle.RepoManager [:maven-manager:ru.bolilyivs.dependency.manager.ivy.IvyInstance.main()].executor": "Debug",
+    "Gradle.RepoManager [:maven-manager:testClasses].executor": "Run",
     "Gradle.RepoManager [:repo-server:build].executor": "Run",
     "Gradle.RepoManager [:repo-server:clean].executor": "Run",
     "Gradle.RepoManager [:repo-server:run].executor": "Run",
@@ -140,14 +173,17 @@
     "RunOnceActivity.readMode.enableVisualFormatting": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "cidr.known.project.marker": "true",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
     "git-widget-placeholder": "master",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/shenlong/IdeaProjects/RepoManager",
+    "last_opened_file_path": "J:/Projects/idea/RepoManager",
     "node.js.selected.package.eslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "onboarding.tips.debug.path": "/home/shenlong/IdeaProjects/RepoManager/maven-server/src/main/java/ru/bolilyivs/Main.java",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Global Libraries",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "rearrange.code.on.save": "true",
@@ -157,35 +193,139 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="ru.bolilyivs.dependency.manager" />
       <recent name="ru.bolilyivs.server.service" />
       <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/repo-server" />
     </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
     <key name="ExtractSuperBase.RECENT_KEYS">
       <recent name="ru.bolilyivs.dependency.manager.ivy" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="ru.bolilyivs.dependency.manager.model.artefact" />
+      <recent name="ru.bolilyivs.dependency.manager" />
+      <recent name="ru.bolilyivs.dependency.manager.impl" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="ru.bolilyivs.server.data.dto" />
       <recent name="ru.bolilyivs.server.rest" />
     </key>
   </component>
-  <component name="RunManager" selected="Micronaut.RepoServerApplication">
-    <configuration name="MavenArtefactFinderImpl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImpl" />
-      <module name="RepoManager.maven-manager.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.bolilyivs.dependency.manager.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+  <component name="RunManager" selected="Gradle.MavenDependencyFinderImplTest.resolve">
+    <configuration name="MavenArtefactDownloaderTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":maven-manager:test" />
+            <option value="--tests" />
+            <option value="&quot;ru.bolilyivs.dependency.manager.impl.MavenArtefactDownloaderTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
     </configuration>
-    <configuration name="RepoManager [:maven-manager:buildDependents]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="MavenArtefactDownloaderTest.downloadArtefact" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":maven-manager:test" />
+            <option value="--tests" />
+            <option value="&quot;ru.bolilyivs.dependency.manager.impl.MavenArtefactDownloaderTest.downloadArtefact&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MavenArtefactFinderImplTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":maven-manager:test" />
+            <option value="--tests" />
+            <option value="&quot;ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImplTest&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MavenDependencyFinderImplTest.resolve" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":maven-manager:test" />
+            <option value="--tests" />
+            <option value="&quot;ru.bolilyivs.dependency.manager.impl.MavenDependencyFinderImplTest.resolve&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <RunAsTest>true</RunAsTest>
+      <GradleProfilingDisabled>false</GradleProfilingDisabled>
+      <GradleCoverageDisabled>false</GradleCoverageDisabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="RepoManager [:maven-manager:testClasses]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -196,7 +336,7 @@
         </option>
         <option name="taskNames">
           <list>
-            <option value=":maven-manager:buildDependents" />
+            <option value=":maven-manager:testClasses" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -208,67 +348,6 @@
       <RunAsTest>false</RunAsTest>
       <GradleProfilingDisabled>false</GradleProfilingDisabled>
       <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="RepoManager [:maven-manager:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":maven-manager:build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="RepoManager [:repo-server:build]" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":repo-server:build" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <ExternalSystemDebugDisabled>false</ExternalSystemDebugDisabled>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <RunAsTest>false</RunAsTest>
-      <GradleProfilingDisabled>false</GradleProfilingDisabled>
-      <GradleCoverageDisabled>false</GradleCoverageDisabled>
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <module name="RepoManager" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <module name="RepoManager" />
-      <option name="filePath" />
       <method v="2" />
     </configuration>
     <configuration name="Application (1)" type="MicronautRunConfigurationType" factoryName="Micronaut" nameIsGenerated="true">
@@ -297,32 +376,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="RepoServerApplication" type="MicronautRunConfigurationType" factoryName="Micronaut" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="ru.bolilyivs.server.RepoServerApplication" />
-      <module name="RepoManager.repo-server.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="ru.bolilyivs.server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="alternativeJrePath" />
-      <option name="alternativeJrePathEnabled" value="false" />
-      <option name="mainClass" value="ru.bolilyivs.server.RepoServerApplication" />
-      <option name="passParentEnvs" value="true" />
-      <option name="programParameters" />
-      <option name="vmParameters" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Micronaut.RepoServerApplication" />
-        <item itemvalue="Gradle.RepoManager [:repo-server:build]" />
-        <item itemvalue="Gradle.RepoManager [:maven-manager:build]" />
-        <item itemvalue="Application.MavenArtefactFinderImpl" />
-        <item itemvalue="Gradle.RepoManager [:maven-manager:buildDependents]" />
+        <item itemvalue="Gradle.MavenDependencyFinderImplTest.resolve" />
+        <item itemvalue="Gradle.MavenArtefactFinderImplTest" />
+        <item itemvalue="Gradle.MavenArtefactDownloaderTest" />
+        <item itemvalue="Gradle.MavenArtefactDownloaderTest.downloadArtefact" />
+        <item itemvalue="Gradle.RepoManager [:maven-manager:testClasses]" />
       </list>
     </recent_temporary>
   </component>
@@ -360,6 +420,7 @@
       <workItem from="1776808298712" duration="3235000" />
       <workItem from="1776949625533" duration="667000" />
       <workItem from="1776952137365" duration="1225000" />
+      <workItem from="1777140904364" duration="6382000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -401,7 +462,15 @@
       <option name="project" value="LOCAL" />
       <updated>1776811489921</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="add getRepo">
+      <option name="closed" value="true" />
+      <created>1777136585901</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777136585901</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -443,7 +512,8 @@
     <MESSAGE value="impl tree dependency" />
     <MESSAGE value="add repo manager" />
     <MESSAGE value="add download service" />
-    <option name="LAST_COMMIT_MESSAGE" value="add download service" />
+    <MESSAGE value="add getRepo" />
+    <option name="LAST_COMMIT_MESSAGE" value="add getRepo" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -459,9 +529,19 @@
           <option name="timeStamp" value="17" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImpl.java</url>
-          <line>22</line>
-          <option name="timeStamp" value="33" />
+          <url>file://$PROJECT_DIR$/maven-manager/src/main/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderImpl.java</url>
+          <line>67</line>
+          <option name="timeStamp" value="36" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactDownloaderTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/maven-manager/src/test/java/ru/bolilyivs/dependency/manager/impl/MavenArtefactFinderImplTest.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

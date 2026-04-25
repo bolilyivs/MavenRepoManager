@@ -1,12 +1,9 @@
 package ru.bolilyivs.dependency.manager.model.artefact;
 
-import java.util.Map;
+import java.util.List;
 
 public record Artefact(
         ArtefactMetaData metaData,
-        Map<ArtefactFileType, ArtefactFile> files
+        List<ArtefactFile> files
 ) {
-    public ArtefactFile getFile(ArtefactFileType fileType) {
-        return files.getOrDefault(fileType, null);
-    }
 }

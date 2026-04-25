@@ -33,7 +33,7 @@ public class SearchController {
                 appConfig.getCacheDir()
         );
 
-        Dependency dependency = mavenDependencyFinder.find(ivyConfig, ArtefactMetaData.of(dependecyString));
+        Dependency dependency = mavenDependencyFinder.resolve(ivyConfig, ArtefactMetaData.of(dependecyString));
         return DependencyDto.ofDependency(dependency);
     }
 }
