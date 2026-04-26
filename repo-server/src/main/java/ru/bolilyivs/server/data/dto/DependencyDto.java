@@ -2,8 +2,8 @@ package ru.bolilyivs.server.data.dto;
 
 import io.micronaut.serde.annotation.Serdeable;
 import io.swagger.v3.oas.annotations.media.Schema;
+import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
-import ru.bolilyivs.dependency.manager.model.dependency.Dependency;
 
 import java.util.List;
 
@@ -19,15 +19,15 @@ public record DependencyDto(
         @Schema
         List<DependencyDto> dependencies
 ) {
-    public static DependencyDto ofDependency(Dependency dependency) {
-        ArtefactId metaData = dependency.artefactId();
+    public static DependencyDto ofArtefact(Artefact artefact) {
+        ArtefactId metaData = artefact.getId();
         return new DependencyDto(
                 metaData.groupId(),
                 metaData.artifactId(),
                 metaData.version(),
-                dependency.dependencies()
+                artefact.getDependencies()
                         .stream()
-                        .map(DependencyDto::ofDependency)
+                        .map(DependencyDto::ofArtefact)
                         .toList()
         );
     }

@@ -4,6 +4,7 @@ import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.server.data.dto.RepoDto;
 import ru.bolilyivs.server.data.dto.RepoUpdateDto;
+import ru.bolilyivs.server.data.exception.RepoException;
 import ru.bolilyivs.server.data.model.Repo;
 import ru.bolilyivs.server.data.repository.RepoRepository;
 
@@ -19,7 +20,7 @@ public class RepoServiceImpl implements RepoService {
     public RepoDto get(String id) {
         return repoRepository.findById(id)
                 .map(this::toRepoDto)
-                .orElseThrow();
+                .orElseThrow(() -> RepoException.ofNotFound("Repo", id));
     }
 
     @Override
@@ -35,10 +36,10 @@ public class RepoServiceImpl implements RepoService {
 
     @Override
     public void update(String id, RepoUpdateDto repoDto) {
-        Repo repoOrigin = repoRepository.findById(id).orElseThrow();
+        Repo repoOrigin = repoRepository.findById(id).orElseThrow(() -> RepoException.ofNotFound("Repo", id));
         repoOrigin.setUrl(repoDto.url());
         repoOrigin.setRepoType(repoDto.repoType());
-        repoRepository.save(repoOrigin);
+        repoRepository.update(repoOrigin);
     }
 
     @Override

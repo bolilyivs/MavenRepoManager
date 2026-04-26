@@ -22,8 +22,8 @@ public record ArtefactDto(
 ) {
 
     public static ArtefactDto of(Artefact artefact) {
-        ArtefactId metaData = artefact.metaData();
-        List<ArtefactFileDto> fileDtos = artefact.files().stream().map(ArtefactFileDto::of).toList();
+        ArtefactId metaData = artefact.getId();
+        List<ArtefactFileDto> fileDtos = artefact.getFiles().stream().map(ArtefactFileDto::of).toList();
         return new ArtefactDto(metaData.groupId(), metaData.artifactId(), metaData.version(), fileDtos);
     }
 

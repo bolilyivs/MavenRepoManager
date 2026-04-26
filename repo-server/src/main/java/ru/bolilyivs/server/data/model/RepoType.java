@@ -6,5 +6,5 @@ import io.swagger.v3.oas.annotations.media.Schema;
 @Serdeable
 @Schema(name = "RepoType", description = "Тип репозитория")
 public enum RepoType {
-    MAVEN;
+    REMOTE, LOCAL;
 }

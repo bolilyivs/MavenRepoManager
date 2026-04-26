@@ -2,8 +2,10 @@ package ru.bolilyivs.server.service;
 
 import io.micronaut.http.multipart.CompletedFileUpload;
 
+import java.nio.file.Path;
+
 public interface UploadService {
-    String uploadArtefact(String repoName,
-                          String dependecyString,
-                          CompletedFileUpload file);
+    Path uploadArtefact(String repoName,
+                        String dependecyString,
+                        CompletedFileUpload file);
 }

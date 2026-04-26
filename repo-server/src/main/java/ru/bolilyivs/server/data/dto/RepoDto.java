@@ -11,7 +11,7 @@ public record RepoDto(
         String name,
         @Schema(description = "Адрес", example = "https://repo1.maven.org/maven2")
         String url,
-        @Schema(description = "Тип репозитория", example = "MAVEN")
+        @Schema(description = "Тип репозитория", example = "REMOTE")
         RepoType repoType
 ) {
 }

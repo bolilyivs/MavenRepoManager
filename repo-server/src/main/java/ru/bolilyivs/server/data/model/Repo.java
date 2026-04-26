@@ -21,7 +21,7 @@ public class Repo {
     @NotNull
     @Column(name = "name", nullable = false, unique = true)
     String name;
-    @Column(name = "url", nullable = false)
+    @Column(name = "url")
     String url;
     @Column(name = "repoType", nullable = false)
     RepoType repoType;

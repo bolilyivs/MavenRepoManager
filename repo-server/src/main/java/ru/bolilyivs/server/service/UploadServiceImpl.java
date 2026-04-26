@@ -22,7 +22,7 @@ public class UploadServiceImpl implements UploadService {
 
     @Override
     @SneakyThrows
-    public String uploadArtefact(String repoName, String dependecyString, CompletedFileUpload file) {
+    public Path uploadArtefact(String repoName, String dependecyString, CompletedFileUpload file) {
 
         String filename = file.getFilename();
         ArtefactFile artefactFile = ArtefactFile.of(
@@ -35,7 +35,7 @@ public class UploadServiceImpl implements UploadService {
             Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
         }
 
-        return targetPath.toString();
+        return targetPath;
     }
 
     @SneakyThrows
