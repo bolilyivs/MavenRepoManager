@@ -37,6 +37,7 @@ dependencies {
     runtimeOnly("org.yaml:snakeyaml")
 
     testImplementation("io.micronaut:micronaut-http-client")
+    testImplementation("io.micronaut.test:micronaut-test-junit5")
     testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     compileOnly(libs.lombok)
