@@ -1,11 +1,11 @@
-package ru.bolilyivs.dependency.manager.ivy.impl;
+package ru.bolilyivs.dependency.manager.ivy;
 
 import lombok.Getter;
 import org.apache.ivy.core.resolve.ResolveOptions;
 import org.apache.ivy.core.settings.IvySettings;
 import org.apache.ivy.plugins.resolver.IBiblioResolver;
 import org.apache.ivy.plugins.resolver.URLResolver;
-import ru.bolilyivs.dependency.manager.ivy.IvyConfig;
+import ru.bolilyivs.dependency.manager.model.Repository;
 
 import java.io.File;
 
@@ -29,6 +29,10 @@ public class IvyConfigImpl implements IvyConfig {
         this.urlResolver = createURLResolver();
         this.settings = createSetting();
         this.resolveOptions = createResolveOptions();
+    }
+
+    public static IvyConfigImpl of(Repository repository, String localRepoPath) {
+        return new IvyConfigImpl(repository.name(), repository.url(), localRepoPath);
     }
 
     public static IvyConfigImpl of(String repoName, String repoUrl, String localRepoPath) {

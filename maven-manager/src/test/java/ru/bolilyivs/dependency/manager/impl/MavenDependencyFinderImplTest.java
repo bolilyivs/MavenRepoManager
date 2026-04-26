@@ -4,10 +4,11 @@ import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
-import ru.bolilyivs.dependency.manager.ivy.impl.MavenArtefactMapperImpl;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
+import ru.bolilyivs.dependency.manager.service.MavenArtefactMapperImpl;
+import ru.bolilyivs.dependency.manager.service.MavenDependencyFinder;
+import ru.bolilyivs.dependency.manager.service.MavenDependencyFinderImpl;
 import ru.bolilyivs.dependency.manager.util.ArtefactIdTestFactory;
 import ru.bolilyivs.dependency.manager.util.RepositoryTestFactory;
 

@@ -15,8 +15,8 @@ public class DownloadController {
 
     private final DownloadService downloadService;
 
-    @Get(uri = "{repoName}/download/dependencies")
-    public void dependencies(@PathVariable String repoName, @Parameter String dependecyString) {
+    @Get(uri = "{repoName}/download/artefact/dependencies")
+    public void artefactWithDependencies(@PathVariable String repoName, @Parameter String dependecyString) {
         downloadService.downloadArtifactWithDependencies(repoName, dependecyString);
     }
 

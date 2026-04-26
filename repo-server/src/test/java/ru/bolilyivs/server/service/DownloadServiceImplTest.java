@@ -6,9 +6,7 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
-import ru.bolilyivs.dependency.manager.MavenArtefactFileFinder;
-import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
+import ru.bolilyivs.dependency.manager.MavenManager;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
@@ -30,31 +28,14 @@ class DownloadServiceImplTest {
     private DownloadService downloadService;
 
     @Inject
-    private MavenDependencyFinder mavenDependencyFinder;
-
-    @Inject
-    private MavenArtefactFileFinder mavenArtefactFileFinder;
-
-    @Inject
-    private MavenArtefactDownloader mavenArtefactDownloader;
-
-    @Inject
     private RepoService repoService;
 
+    @Inject
+    private MavenManager mavenManager;
 
-    @MockBean(MavenDependencyFinder.class)
-    MavenDependencyFinder mavenDependencyFinder() {
-        return mock(MavenDependencyFinder.class);
-    }
-
-    @MockBean(MavenArtefactFileFinder.class)
-    MavenArtefactFileFinder mavenArtefactFileFinder() {
-        return mock(MavenArtefactFileFinder.class);
-    }
-
-    @MockBean(MavenArtefactDownloader.class)
-    MavenArtefactDownloader mavenArtefactDownloader() {
-        return mock(MavenArtefactDownloader.class);
+    @MockBean(MavenManager.class)
+    MavenManager mavenManager() {
+        return mock(MavenManager.class);
     }
 
     @MockBean(RepoService.class)
@@ -66,12 +47,12 @@ class DownloadServiceImplTest {
     void setup() {
         Artefact excepted = createArtefact();
 
-        when(mavenDependencyFinder.resolve(any(), any())).thenReturn(excepted);
-        when(mavenArtefactFileFinder.find(any(), any())).thenReturn(excepted.getFiles());
+        when(mavenManager.resolveDependency(any(), any())).thenReturn(excepted);
+        when(mavenManager.findArtefactWithFiles(any(), any())).thenReturn(excepted);
         when(repoService.get(any())).thenReturn(
                 new RepoDto("test", "", RepoType.REMOTE)
         );
-        when(mavenArtefactDownloader.downloadArtefactToFile(any(), any())).thenReturn(Path.of(""));
+        when(mavenManager.downloadArtefactToFile(any(), any())).thenReturn(Path.of(""));
     }
 
     @Test

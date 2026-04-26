@@ -1,10 +1,9 @@
-package ru.bolilyivs.dependency.manager.impl;
+package ru.bolilyivs.dependency.manager.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
-import ru.bolilyivs.dependency.manager.MavenArtefactFileFinder;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;

@@ -1,4 +1,4 @@
-package ru.bolilyivs.dependency.manager.ivy;
+package ru.bolilyivs.dependency.manager.service;
 
 import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;

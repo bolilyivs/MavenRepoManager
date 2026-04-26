@@ -4,7 +4,7 @@ import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
+import ru.bolilyivs.dependency.manager.MavenManager;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
@@ -23,7 +23,7 @@ import java.util.concurrent.TimeUnit;
 public class DownloadServiceImpl implements DownloadService {
 
     private final FindService findService;
-    private final MavenArtefactDownloader mavenArtefactDownloader;
+    private final MavenManager mavenManager;
     private final RepoService repoService;
     private final AppConfig appConfig;
 
@@ -65,11 +65,11 @@ public class DownloadServiceImpl implements DownloadService {
     private void downloadArtefact(RepoDto repoDto, ArtefactId artefactId) {
         Repository repository = new Repository(repoDto.name(), repoDto.url());
 
-        Artefact artefact = findService.findArtefact(repository, artefactId);
+        Artefact artefact = findService.findArtefactWithFiles(repository, artefactId);
         artefact.getFiles()
                 .stream()
                 .filter(artefactFile -> !Files.exists(Path.of(appConfig.getRootRepoDir(), repoDto.name(), artefactFile.path().toString())))
-                .forEach(file -> mavenArtefactDownloader.downloadArtefactToFile(repository, file));
+                .forEach(file -> mavenManager.downloadArtefactToFile(repository, file));
         log.info("{} is downloaded", artefact.getId());
     }
 }

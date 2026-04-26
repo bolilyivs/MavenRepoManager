@@ -18,7 +18,7 @@ import java.util.List;
 
 @Controller("/api/v1/repo")
 @RequiredArgsConstructor
-@Tag(name = "ManagerController")
+@Tag(name = "RepoManagerController")
 public class RepoManagerController {
 
     private final RepoService repoService;

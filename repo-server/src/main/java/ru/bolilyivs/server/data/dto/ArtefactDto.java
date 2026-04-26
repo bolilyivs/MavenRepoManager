@@ -18,13 +18,16 @@ public record ArtefactDto(
         @Schema
         String version,
         @Schema
-        List<ArtefactFileDto> files
+        List<ArtefactFileDto> files,
+        @Schema
+        List<ArtefactDto> dependencies
 ) {
 
     public static ArtefactDto of(Artefact artefact) {
-        ArtefactId metaData = artefact.getId();
-        List<ArtefactFileDto> fileDtos = artefact.getFiles().stream().map(ArtefactFileDto::of).toList();
-        return new ArtefactDto(metaData.groupId(), metaData.artifactId(), metaData.version(), fileDtos);
+        ArtefactId artefactId = artefact.getId();
+        List<ArtefactFileDto> files = artefact.getFiles().stream().map(ArtefactFileDto::of).toList();
+        List<ArtefactDto> dependencies = artefact.getDependencies().stream().map(ArtefactDto::of).toList();
+        return new ArtefactDto(artefactId.groupId(), artefactId.artifactId(), artefactId.version(), files, dependencies);
     }
 
     @Serdeable
@@ -38,7 +41,7 @@ public record ArtefactDto(
     ) {
 
         public static ArtefactFileDto of(ArtefactFile artefactFile) {
-            return new ArtefactFileDto(artefactFile.filename(), artefactFile.type().toString(), artefactFile.path().toString());
+            return new ArtefactFileDto(artefactFile.filename(), artefactFile.type().toString(), artefactFile.path().toString().replace("\\", "/"));
         }
     }
 }

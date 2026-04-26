@@ -3,11 +3,12 @@ package ru.bolilyivs.dependency.manager.impl;
 import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
-import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
+import ru.bolilyivs.dependency.manager.service.MavenArtefactDownloader;
+import ru.bolilyivs.dependency.manager.service.MavenArtefactDownloaderImpl;
 import ru.bolilyivs.dependency.manager.util.ArtefactIdTestFactory;
 import ru.bolilyivs.dependency.manager.util.RepositoryTestFactory;
 

@@ -20,8 +20,8 @@ public class UploadController {
 
     private final UploadService uploadService;
 
-    @Post(uri = "{repoName}/upload/artefact", consumes = MediaType.MULTIPART_FORM_DATA)
-    public MessageDto<String> dependencies(@PathVariable String repoName,
+    @Post(uri = "{repoName}/upload/artefact/file", consumes = MediaType.MULTIPART_FORM_DATA)
+    public MessageDto<String> artefactFile(@PathVariable String repoName,
                                            @Parameter String dependecyString,
                                            CompletedFileUpload file) {
         Path path = uploadService.uploadArtefact(repoName, dependecyString, file);

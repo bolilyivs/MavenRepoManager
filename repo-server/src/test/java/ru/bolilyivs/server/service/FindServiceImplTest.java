@@ -6,8 +6,7 @@ import jakarta.inject.Inject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import ru.bolilyivs.dependency.manager.MavenArtefactFileFinder;
-import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
+import ru.bolilyivs.dependency.manager.MavenManager;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
@@ -28,22 +27,14 @@ class FindServiceImplTest {
     private FindService findService;
 
     @Inject
-    private MavenDependencyFinder mavenDependencyFinder;
-
-    @Inject
-    private MavenArtefactFileFinder mavenArtefactFileFinder;
-
-    @Inject
     private RepoService repoService;
 
-    @MockBean(MavenDependencyFinder.class)
-    MavenDependencyFinder mavenDependencyFinder() {
-        return mock(MavenDependencyFinder.class);
-    }
+    @Inject
+    private MavenManager mavenManager;
 
-    @MockBean(MavenArtefactFileFinder.class)
-    MavenArtefactFileFinder mavenArtefactFileFinder() {
-        return mock(MavenArtefactFileFinder.class);
+    @MockBean(MavenManager.class)
+    MavenManager mavenManager() {
+        return mock(MavenManager.class);
     }
 
     @MockBean(RepoService.class)
@@ -59,14 +50,14 @@ class FindServiceImplTest {
     }
 
     @Test
-    void findArtefactWithDependencies() {
+    void findArtefactWithFilesWithDependencies() {
         Artefact excepted = Artefact.ofDependencies(
                 ArtefactId.of("org.apache.commons:commons-text:1.15.0"),
                 List.of(
                         Artefact.of(ArtefactId.of("org.apache.commons:commons-lang3:3.20.0"))
                 )
         );
-        when(mavenDependencyFinder.resolve(any(), any())).thenReturn(excepted);
+        when(mavenManager.resolveDependency(any(), any())).thenReturn(excepted);
 
         Artefact actual = findService.findArtefactWithDependencies("test", "org.apache.commons:commons-text:1.15.0");
 
@@ -77,7 +68,7 @@ class FindServiceImplTest {
     }
 
     @Test
-    void findArtefact() {
+    void findArtefactWithFiles() {
         Artefact excepted = Artefact.ofArtefactFiles(
                 ArtefactId.of("org.apache.commons:commons-text:1.15.0"),
                 List.of(
@@ -88,9 +79,9 @@ class FindServiceImplTest {
                         )
                 )
         );
-        when(mavenArtefactFileFinder.find(any(), any())).thenReturn(excepted.getFiles());
+        when(mavenManager.findArtefactWithFiles(any(), any())).thenReturn(excepted);
 
-        Artefact actual = findService.findArtefact("test", "org.apache.commons:commons-text:1.15.0");
+        Artefact actual = findService.findArtefactWithFiles("test", "org.apache.commons:commons-text:1.15.0");
 
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(excepted.getId(), actual.getId());

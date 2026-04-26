@@ -26,4 +26,9 @@ public record ArtefactFile(
                 path
         );
     }
+
+    public static ArtefactFile generateFrom(final ArtefactId id, final ArtefactFileType type) {
+        String filename = "%s-%s%s".formatted(id.artifactId(), id.version(), type.getExtension());
+        return ArtefactFile.of(filename, type, id);
+    }
 }

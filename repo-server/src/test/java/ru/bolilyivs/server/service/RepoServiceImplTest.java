@@ -24,7 +24,6 @@ class RepoServiceImplTest {
     private RepoService repoService;
     @Inject
     private RepoRepository repository;
-    ;
 
     @BeforeEach
     void setup() {

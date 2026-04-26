@@ -1,4 +1,4 @@
-package ru.bolilyivs.dependency.manager;
+package ru.bolilyivs.dependency.manager.service;
 
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;

@@ -2,10 +2,11 @@ package ru.bolilyivs.dependency.manager.impl;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import ru.bolilyivs.dependency.manager.MavenArtefactFileFinder;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
+import ru.bolilyivs.dependency.manager.service.MavenArtefactFileFinder;
+import ru.bolilyivs.dependency.manager.service.MavenArtefactFileFinderImpl;
 import ru.bolilyivs.dependency.manager.util.ArtefactIdTestFactory;
 import ru.bolilyivs.dependency.manager.util.RepositoryTestFactory;
 

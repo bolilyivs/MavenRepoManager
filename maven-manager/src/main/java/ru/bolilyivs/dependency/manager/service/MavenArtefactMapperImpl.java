@@ -1,11 +1,10 @@
-package ru.bolilyivs.dependency.manager.ivy.impl;
+package ru.bolilyivs.dependency.manager.service;
 
 import lombok.RequiredArgsConstructor;
 import org.apache.ivy.core.module.descriptor.DependencyDescriptor;
 import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;
 import org.apache.ivy.core.resolve.IvyNode;
-import ru.bolilyivs.dependency.manager.ivy.MavenArtefactMapper;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.dependency.manager.model.dependency.IvyDependency;

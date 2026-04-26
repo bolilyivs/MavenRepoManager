@@ -1,8 +1,7 @@
-package ru.bolilyivs.dependency.manager.impl;
+package ru.bolilyivs.dependency.manager.service;
 
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 
