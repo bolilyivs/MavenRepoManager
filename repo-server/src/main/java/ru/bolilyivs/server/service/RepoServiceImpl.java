@@ -1,5 +1,6 @@
 package ru.bolilyivs.server.service;
 
+import io.micronaut.http.HttpStatus;
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.server.data.dto.RepoDto;
@@ -30,6 +31,10 @@ public class RepoServiceImpl implements RepoService {
 
     @Override
     public void create(RepoDto repoDto) {
+        if (repoRepository.existsById(repoDto.name())) {
+            throw new RepoException("Репозиторий с таким именем уже существует", HttpStatus.BAD_REQUEST);
+        }
+
         Repo repo = toRepo(repoDto);
         repoRepository.save(repo);
     }

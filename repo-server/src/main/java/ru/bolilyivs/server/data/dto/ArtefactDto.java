@@ -9,7 +9,7 @@ import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import java.util.List;
 
 @Serdeable
-@Schema(name = "DependencyDto", description = "Зависимость")
+@Schema(name = "ArtefactDto", description = "Зависимость")
 public record ArtefactDto(
         @Schema
         String groupId,

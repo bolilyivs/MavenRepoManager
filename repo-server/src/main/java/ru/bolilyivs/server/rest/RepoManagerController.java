@@ -2,6 +2,7 @@ package ru.bolilyivs.server.rest;
 
 import io.micronaut.http.annotation.*;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.server.data.dto.RepoDto;
 import ru.bolilyivs.server.data.dto.RepoUpdateDto;
@@ -34,12 +35,12 @@ public class RepoManagerController {
     }
 
     @Post
-    public void create(@Body RepoDto repoDto) {
+    public void create(@Body @Valid RepoDto repoDto) {
         repoService.create(repoDto);
     }
 
     @Put(uri = "{repoName}")
-    public void update(@PathVariable String repoName, @Body RepoUpdateDto repoDto) {
+    public void update(@PathVariable String repoName, @Body @Valid RepoUpdateDto repoDto) {
         repoService.update(repoName, repoDto);
     }
 
