@@ -6,12 +6,12 @@ import org.apache.ivy.core.report.ResolveReport;
 import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
 import ru.bolilyivs.dependency.manager.ivy.IvyConfig;
 import ru.bolilyivs.dependency.manager.ivy.IvyInstance;
-import ru.bolilyivs.dependency.manager.ivy.MavenDependencyMapper;
+import ru.bolilyivs.dependency.manager.ivy.MavenArtefactMapper;
 import ru.bolilyivs.dependency.manager.ivy.impl.IvyConfigImpl;
 import ru.bolilyivs.dependency.manager.ivy.impl.IvyInstanceImpl;
 import ru.bolilyivs.dependency.manager.model.Repository;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
-import ru.bolilyivs.dependency.manager.model.dependency.Dependency;
+import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.dependency.manager.model.dependency.IvyDependency;
 
 import java.util.List;
@@ -20,20 +20,24 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MavenDependencyFinderImpl implements MavenDependencyFinder {
 
-    private final MavenDependencyMapper mavenDependencyMapper;
+    private final MavenArtefactMapper mavenArtefactMapper;
     private final String localCacheDir;
 
     @Override
     @SneakyThrows
-    public Dependency resolve(Repository repository, ArtefactMetaData metaData) {
+    public Artefact resolve(Repository repository, ArtefactId metaData) {
         IvyConfig ivyConfig = new IvyConfigImpl(
                 repository.name(),
-                repository.name(),
+                repository.url(),
                 localCacheDir
         );
         IvyInstance ivyInstance = new IvyInstanceImpl(ivyConfig);
         ResolveReport resolveReport = ivyInstance.resolve(metaData);
-        List<IvyDependency> ivyDependencyList = mavenDependencyMapper.mapIvyDependency(resolveReport);
-        return mavenDependencyMapper.mapDependency(ivyDependencyList);
+        if (resolveReport.hasError()) {
+            throw new RuntimeException(resolveReport.getAllProblemMessages().toString());
+        }
+
+        List<IvyDependency> ivyDependencyList = mavenArtefactMapper.mapIvyDependencyFrom(resolveReport);
+        return mavenArtefactMapper.mapArtefactFrom(ivyDependencyList);
     }
 }

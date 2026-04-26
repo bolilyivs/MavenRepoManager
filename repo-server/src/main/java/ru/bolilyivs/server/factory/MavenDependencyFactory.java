@@ -4,13 +4,13 @@ import io.micronaut.context.annotation.Factory;
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
 import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
-import ru.bolilyivs.dependency.manager.MavenArtefactFinder;
+import ru.bolilyivs.dependency.manager.MavenArtefactFileFinder;
 import ru.bolilyivs.dependency.manager.MavenDependencyFinder;
 import ru.bolilyivs.dependency.manager.impl.MavenArtefactDownloaderImpl;
-import ru.bolilyivs.dependency.manager.impl.MavenArtefactFinderImpl;
+import ru.bolilyivs.dependency.manager.impl.MavenArtefactFileFinderImpl;
 import ru.bolilyivs.dependency.manager.impl.MavenDependencyFinderImpl;
-import ru.bolilyivs.dependency.manager.ivy.MavenDependencyMapper;
-import ru.bolilyivs.dependency.manager.ivy.impl.MavenDependencyMapperImpl;
+import ru.bolilyivs.dependency.manager.ivy.MavenArtefactMapper;
+import ru.bolilyivs.dependency.manager.ivy.impl.MavenArtefactMapperImpl;
 import ru.bolilyivs.server.config.AppConfig;
 
 @Factory
@@ -21,13 +21,13 @@ public class MavenDependencyFactory {
 
     @Singleton
     public MavenDependencyFinder mavenDependencyFinder() {
-        MavenDependencyMapper mavenDependencyMapper = new MavenDependencyMapperImpl();
-        return new MavenDependencyFinderImpl(mavenDependencyMapper, appConfig.getCacheDir());
+        MavenArtefactMapper mavenArtefactMapper = new MavenArtefactMapperImpl();
+        return new MavenDependencyFinderImpl(mavenArtefactMapper, appConfig.getCacheDir());
     }
 
     @Singleton
-    public MavenArtefactFinder mavenArtefactFinder() {
-        return new MavenArtefactFinderImpl();
+    public MavenArtefactFileFinder mavenArtefactFinder() {
+        return new MavenArtefactFileFinderImpl();
     }
 
     @Singleton

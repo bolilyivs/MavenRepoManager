@@ -11,7 +11,7 @@ import java.io.File;
 
 @Getter
 public class IvyConfigImpl implements IvyConfig {
-    private final static String[] CONFS = new String[]{"default", "sources", "javadoc"};
+    private final static String[] CONFS = new String[]{"default"};
 
     private final String repoName;
     private final String repoUrl;
@@ -61,7 +61,7 @@ public class IvyConfigImpl implements IvyConfig {
         ResolveOptions ro = new ResolveOptions();
         ro.setDownload(false);
         ro.setConfs(CONFS);
-        ro.setOutputReport(false);
+        ro.setOutputReport(true);
         return ro;
     }
 }

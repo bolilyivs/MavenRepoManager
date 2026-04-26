@@ -5,9 +5,9 @@ import org.apache.ivy.core.module.descriptor.DependencyDescriptor;
 import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;
 import org.apache.ivy.core.resolve.IvyNode;
-import ru.bolilyivs.dependency.manager.ivy.MavenDependencyMapper;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
-import ru.bolilyivs.dependency.manager.model.dependency.Dependency;
+import ru.bolilyivs.dependency.manager.ivy.MavenArtefactMapper;
+import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.dependency.manager.model.dependency.IvyDependency;
 
 import java.util.List;
@@ -18,13 +18,13 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @RequiredArgsConstructor
-public class MavenDependencyMapperImpl implements MavenDependencyMapper {
+public class MavenArtefactMapperImpl implements MavenArtefactMapper {
 
     @Override
-    public List<IvyDependency> mapIvyDependency(ResolveReport resolveReport) {
+    public List<IvyDependency> mapIvyDependencyFrom(ResolveReport resolveReport) {
         return resolveReport.getDependencies()
                 .stream()
-                .map(this::mapIvyDependency).toList();
+                .map(this::mapIvyDependencyFrom).toList();
     }
 
     /**
@@ -34,14 +34,14 @@ public class MavenDependencyMapperImpl implements MavenDependencyMapper {
      * @return Ivy зависимость
      */
     @Override
-    public IvyDependency mapIvyDependency(IvyNode ivyNode) {
-        ArtefactMetaData metaData = mapArtefactMetaData(ivyNode.getResolvedId());
+    public IvyDependency mapIvyDependencyFrom(IvyNode ivyNode) {
+        ArtefactId metaData = mapArtefactIdFrom(ivyNode.getResolvedId());
         if (Objects.isNull(ivyNode.getDescriptor())) {
             return new IvyDependency(metaData, List.of());
         }
-        List<ArtefactMetaData> deps = Stream.of(ivyNode.getDescriptor().getDependencies())
+        List<ArtefactId> deps = Stream.of(ivyNode.getDescriptor().getDependencies())
                 .map(DependencyDescriptor::getDependencyRevisionId)
-                .map(this::mapArtefactMetaData)
+                .map(this::mapArtefactIdFrom)
                 .toList();
         return new IvyDependency(metaData, deps);
     }
@@ -53,11 +53,11 @@ public class MavenDependencyMapperImpl implements MavenDependencyMapper {
      * @return Зависимость
      */
     @Override
-    public Dependency mapDependency(List<IvyDependency> ivyDependencies) {
-        Map<ArtefactMetaData, IvyDependency> mapDeps = ivyDependencies.stream()
-                .collect(Collectors.toMap(IvyDependency::metaData, Function.identity()));
+    public Artefact mapArtefactFrom(List<IvyDependency> ivyDependencies) {
+        Map<ArtefactId, IvyDependency> mapDeps = ivyDependencies.stream()
+                .collect(Collectors.toMap(IvyDependency::id, Function.identity()));
         IvyDependency root = ivyDependencies.getFirst();
-        return mapDependency(root, mapDeps);
+        return mapArtefactFrom(root, mapDeps);
     }
 
     /**
@@ -68,14 +68,14 @@ public class MavenDependencyMapperImpl implements MavenDependencyMapper {
      * @return Зависимость
      */
     @Override
-    public Dependency mapDependency(IvyDependency node, Map<ArtefactMetaData, IvyDependency> mapDeps) {
-        List<Dependency> deps = node.dependenies().stream()
+    public Artefact mapArtefactFrom(IvyDependency node, Map<ArtefactId, IvyDependency> mapDeps) {
+        List<Artefact> deps = node.dependencies().stream()
                 .map(iDepMetaData -> mapDeps.getOrDefault(iDepMetaData, null))
                 .filter(Objects::nonNull)
-                .map(ivyDependency -> mapDependency(ivyDependency, mapDeps))
+                .map(ivyDependency -> mapArtefactFrom(ivyDependency, mapDeps))
                 .toList();
 
-        return new Dependency(node.metaData(), deps);
+        return Artefact.ofDependencies(node.id(), deps);
     }
 
     /**
@@ -85,8 +85,8 @@ public class MavenDependencyMapperImpl implements MavenDependencyMapper {
      * @return Метаданные артефакта
      */
     @Override
-    public ArtefactMetaData mapArtefactMetaData(ModuleRevisionId moduleRevisionId) {
-        return new ArtefactMetaData(
+    public ArtefactId mapArtefactIdFrom(ModuleRevisionId moduleRevisionId) {
+        return new ArtefactId(
                 moduleRevisionId.getOrganisation(),
                 moduleRevisionId.getName(),
                 moduleRevisionId.getRevision()

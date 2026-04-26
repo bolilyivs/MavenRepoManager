@@ -6,7 +6,7 @@ import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.server.config.AppConfig;
 
 import java.io.InputStream;
@@ -28,7 +28,7 @@ public class UploadServiceImpl implements UploadService {
         ArtefactFile artefactFile = ArtefactFile.of(
                 filename,
                 ArtefactFileType.ofFileName(filename),
-                ArtefactMetaData.of(dependecyString)
+                ArtefactId.of(dependecyString)
         );
         Path targetPath = createTargetPath(repoName, artefactFile);
         try (InputStream is = file.getInputStream()) {

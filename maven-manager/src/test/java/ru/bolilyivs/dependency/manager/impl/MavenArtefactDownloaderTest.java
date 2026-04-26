@@ -7,7 +7,9 @@ import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
+import ru.bolilyivs.dependency.manager.util.ArtefactIdTestFactory;
+import ru.bolilyivs.dependency.manager.util.RepositoryTestFactory;
 
 import java.io.File;
 import java.io.IOException;
@@ -19,7 +21,8 @@ import java.nio.file.StandardCopyOption;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MavenArtefactDownloaderTest {
 
-    private static String DOWNLOAD_PATH = "./download";
+    public static final String FILENAME = "spring-boot-data-jpa-4.1.0-M1.jar";
+    private static final String DOWNLOAD_PATH = "./download";
     private MavenArtefactDownloader downloader;
 
     @BeforeAll
@@ -37,25 +40,19 @@ class MavenArtefactDownloaderTest {
 
     @Test
     void downloadArtefactToFile() {
-        Repository repository = new Repository(
-                "central",
-                "https://repo1.maven.org/maven2"
-        );
-        ArtefactMetaData metaData = ArtefactMetaData.of("org.springframework.boot:spring-boot-data-jpa:4.1.0-M1");
-        ArtefactFile artefactFile = ArtefactFile.of("spring-boot-data-jpa-4.1.0-M1.jar", ArtefactFileType.JAR, metaData);
+        Repository repository = RepositoryTestFactory.createCentralTestRepository();
+        ArtefactId metaData = ArtefactIdTestFactory.createArtefactIdTest();
+        ArtefactFile artefactFile = ArtefactFile.of(FILENAME, ArtefactFileType.JAR, metaData);
 
-        String path = this.downloader.downloadArtefactToFile(repository, artefactFile);
-        Assertions.assertTrue(Files.exists(Path.of(path)));
+        Path actual = this.downloader.downloadArtefactToFile(repository, artefactFile);
+        Assertions.assertTrue(Files.exists(actual));
     }
 
     @Test
     void downloadArtefact() throws IOException {
-        Repository repository = new Repository(
-                "central",
-                "https://repo1.maven.org/maven2"
-        );
-        ArtefactMetaData metaData = ArtefactMetaData.of("org.springframework.boot:spring-boot-data-jpa:4.1.0-M1");
-        ArtefactFile artefactFile = ArtefactFile.of("spring-boot-data-jpa-4.1.0-M1.jar", ArtefactFileType.JAR, metaData);
+        Repository repository = RepositoryTestFactory.createCentralTestRepository();
+        ArtefactId metaData = ArtefactIdTestFactory.createArtefactIdTest();
+        ArtefactFile artefactFile = ArtefactFile.of(FILENAME, ArtefactFileType.JAR, metaData);
 
         Path targetPath = createTargetPath(artefactFile);
 

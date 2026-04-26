@@ -19,7 +19,7 @@ public class FindController {
 
     @Get(uri = "{repoName}/find/dependencies") // (2)
     public DependencyDto findDependencies(@PathVariable String repoName, @Parameter String dependecyString) {
-        return DependencyDto.ofDependency(findService.findDependencies(repoName, dependecyString));
+        return DependencyDto.ofDependency(findService.findArtefactWithDependencies(repoName, dependecyString));
     }
 
     @Get(uri = "{repoName}/find/artefact") // (2)

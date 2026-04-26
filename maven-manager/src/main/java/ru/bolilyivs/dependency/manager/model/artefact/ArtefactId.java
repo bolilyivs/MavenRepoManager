@@ -2,37 +2,37 @@ package ru.bolilyivs.dependency.manager.model.artefact;
 
 import java.nio.file.Path;
 
-public record ArtefactMetaData(
+public record ArtefactId(
         String groupId,
         String artifactId,
         String version
 ) {
-    public static ArtefactMetaData of(String artefactOneString) {
+    public static ArtefactId of(String artefactOneString) {
         String[] metaData = artefactOneString.split(":");
-        return new ArtefactMetaData(
+        return new ArtefactId(
                 metaData[0],
                 metaData[1],
                 metaData[2]
         );
     }
 
-    public static ArtefactMetaData ofArtefactFile(final ArtefactFile artefactFile) {
+    public static ArtefactId ofArtefactFile(final ArtefactFile artefactFile) {
         return ofRelativeFilePath(artefactFile.path());
     }
 
-    public static ArtefactMetaData ofRelativeFilePath(final Path relativeFilePath) {
+    public static ArtefactId ofRelativeFilePath(final Path relativeFilePath) {
         Path path = relativeFilePath.getParent();
         return ofRelativeFolderPath(path);
     }
 
-    public static ArtefactMetaData ofRelativeFolderPath(final Path relativeFolderPath) {
+    public static ArtefactId ofRelativeFolderPath(final Path relativeFolderPath) {
         Path path = relativeFolderPath;
         String version = path.getFileName().toString();
         path = path.getParent();
         String artifactId = path.getFileName().toString();
         String groupId = path.getParent().toString();
 
-        return new ArtefactMetaData(
+        return new ArtefactId(
                 groupId,
                 artifactId,
                 version

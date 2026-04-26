@@ -6,7 +6,7 @@ import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;
 import ru.bolilyivs.dependency.manager.ivy.IvyConfig;
 import ru.bolilyivs.dependency.manager.ivy.IvyInstance;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 
 public class IvyInstanceImpl implements IvyInstance {
     private final IvyConfig config;
@@ -19,7 +19,7 @@ public class IvyInstanceImpl implements IvyInstance {
 
     @SneakyThrows
     @Override
-    public ResolveReport resolve(ArtefactMetaData metaData) {
+    public ResolveReport resolve(ArtefactId metaData) {
         ModuleRevisionId ri = ModuleRevisionId.newInstance(
                 metaData.groupId(),
                 metaData.artifactId(),

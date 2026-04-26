@@ -4,7 +4,7 @@ import io.micronaut.serde.annotation.Serdeable;
 import io.swagger.v3.oas.annotations.media.Schema;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 
 import java.util.List;
 
@@ -22,7 +22,7 @@ public record ArtefactDto(
 ) {
 
     public static ArtefactDto of(Artefact artefact) {
-        ArtefactMetaData metaData = artefact.metaData();
+        ArtefactId metaData = artefact.metaData();
         List<ArtefactFileDto> fileDtos = artefact.files().stream().map(ArtefactFileDto::of).toList();
         return new ArtefactDto(metaData.groupId(), metaData.artifactId(), metaData.version(), fileDtos);
     }

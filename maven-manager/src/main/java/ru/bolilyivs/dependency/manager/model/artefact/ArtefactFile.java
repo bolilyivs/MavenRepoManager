@@ -12,7 +12,7 @@ public record ArtefactFile(
         return new ArtefactFile(filename, type, Path.of(path));
     }
 
-    public static ArtefactFile of(final String filename, final ArtefactFileType type, final ArtefactMetaData metaData) {
+    public static ArtefactFile of(final String filename, final ArtefactFileType type, final ArtefactId metaData) {
         String path = "%s/%s".formatted(metaData.getPath(), filename);
         return new ArtefactFile(filename, type, Path.of(path));
     }

@@ -1,6 +1,6 @@
 package ru.bolilyivs.dependency.manager.model.dependency;
 
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 
 import java.util.Collection;
 import java.util.HashSet;
@@ -9,7 +9,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 public record Dependency(
-        ArtefactMetaData artefactMetaData,
+        ArtefactId artefactId,
         List<Dependency> dependencies
 ) {
     public Set<Dependency> getFlatListDependencies() {
@@ -25,7 +25,7 @@ public record Dependency(
 
     public String printTree(String tab) {
         StringBuilder sb = new StringBuilder();
-        sb.append("|%s>%s\n".formatted(tab, this.artefactMetaData));
+        sb.append("|%s>%s\n".formatted(tab, this.artefactId));
         for (Dependency dependency : dependencies()) {
             sb.append(dependency.printTree("%s%s".formatted(tab, "-")));
         }

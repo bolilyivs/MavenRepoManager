@@ -7,8 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import ru.bolilyivs.dependency.manager.MavenArtefactDownloader;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
-import ru.bolilyivs.dependency.manager.model.artefact.ArtefactMetaData;
-import ru.bolilyivs.dependency.manager.model.dependency.Dependency;
+import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.server.config.AppConfig;
 import ru.bolilyivs.server.data.dto.RepoDto;
 
@@ -38,22 +37,22 @@ public class DownloadServiceImpl implements DownloadService {
     @Override
     public void downloadArtifact(String repoName, String dependecyString) {
         RepoDto repoDto = repoService.get(repoName);
-        downloadArtefact(repoDto, ArtefactMetaData.of(dependecyString));
+        downloadArtefact(repoDto, ArtefactId.of(dependecyString));
     }
 
     private void asyncDownloadWithDependency(String repoName, String dependecyString) {
         RepoDto repoDto = repoService.get(repoName);
-        Dependency dependency = findService.findDependencies(repoName, dependecyString);
-        Set<Dependency> dependencySet = dependency.getFlatListDependencies();
+        Artefact artefact = findService.findArtefactWithDependencies(repoName, dependecyString);
+        Set<Artefact> dependencySet = artefact.getFlatListDependencies();
         dependencySet.forEach(dep -> tryDownloadArtefact(repoDto, dep));
         log.info("Downloaded done!");
     }
 
     @SneakyThrows
-    private void tryDownloadArtefact(RepoDto repoDto, Dependency dependency) {
+    private void tryDownloadArtefact(RepoDto repoDto, Artefact artefact) {
         for (int i = 0; i < 3; i++) {
             try {
-                downloadArtefact(repoDto, dependency.artefactMetaData());
+                downloadArtefact(repoDto, artefact.getId());
                 return;
             } catch (Exception e) {
                 log.error("Download artefact failed: attempt {}", i + 1, e);
@@ -63,14 +62,14 @@ public class DownloadServiceImpl implements DownloadService {
     }
 
     @SneakyThrows
-    private void downloadArtefact(RepoDto repoDto, ArtefactMetaData artefactMetaData) {
+    private void downloadArtefact(RepoDto repoDto, ArtefactId artefactId) {
         Repository repository = new Repository(repoDto.name(), repoDto.url());
 
-        Artefact artefact = findService.findArtefact(repository, artefactMetaData);
-        artefact.files()
+        Artefact artefact = findService.findArtefact(repository, artefactId);
+        artefact.getFiles()
                 .stream()
                 .filter(artefactFile -> !Files.exists(Path.of(appConfig.getRootRepoDir(), repoDto.name(), artefactFile.path().toString())))
                 .forEach(file -> mavenArtefactDownloader.downloadArtefactToFile(repository, file));
-        log.info("{} is downloaded", artefact.metaData());
+        log.info("{} is downloaded", artefact.getId());
     }
 }
