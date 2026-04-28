@@ -11,7 +11,7 @@ import java.io.File;
 
 @Getter
 public class IvyConfigImpl implements IvyConfig {
-    private final static String[] CONFS = new String[]{"default"};
+    private static final String[] CONFS = new String[]{"default"};
 
     private final String repoName;
     private final String repoUrl;

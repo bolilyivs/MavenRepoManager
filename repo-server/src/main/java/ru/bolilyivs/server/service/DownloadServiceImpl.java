@@ -29,9 +29,9 @@ public class DownloadServiceImpl implements DownloadService {
 
     @Override
     public void downloadArtifactWithDependencies(String repoName, String dependecyString) {
-        CompletableFuture.runAsync(() -> {
-            asyncDownloadWithDependency(repoName, dependecyString);
-        });
+        CompletableFuture.runAsync(() ->
+                asyncDownloadWithDependency(repoName, dependecyString)
+        );
     }
 
     @Override

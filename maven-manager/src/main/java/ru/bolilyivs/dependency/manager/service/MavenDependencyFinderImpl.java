@@ -11,6 +11,7 @@ import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.dependency.manager.model.dependency.IvyDependency;
+import ru.bolilyivs.dependency.manager.model.exception.MavenManagerException;
 
 import java.util.List;
 
@@ -28,7 +29,7 @@ public class MavenDependencyFinderImpl implements MavenDependencyFinder {
         IvyInstance ivyInstance = new IvyInstanceImpl(ivyConfig);
         ResolveReport resolveReport = ivyInstance.resolve(metaData);
         if (resolveReport.hasError()) {
-            throw new RuntimeException(resolveReport.getAllProblemMessages().toString());
+            throw new MavenManagerException(resolveReport.getAllProblemMessages().toString());
         }
 
         List<IvyDependency> ivyDependencyList = mavenArtefactMapper.mapIvyDependencyFrom(resolveReport);

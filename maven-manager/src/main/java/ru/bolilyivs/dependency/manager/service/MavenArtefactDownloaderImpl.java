@@ -5,7 +5,6 @@ import lombok.SneakyThrows;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 
-import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -39,15 +38,12 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
     @Override
     public InputStream downloadArtefact(Repository repository, ArtefactFile artefactFile) {
         URI srcURI = createURI(repository, artefactFile);
-        HttpClient client = HttpClient.newHttpClient();
         HttpRequest request = createHttpRequest(srcURI);
 
-        try {
+        try (HttpClient client = HttpClient.newHttpClient()) {
             HttpResponse<InputStream> response = client.send(request,
                     HttpResponse.BodyHandlers.ofInputStream());
             return response.body();
-        } catch (IOException | InterruptedException e) {
-            e.printStackTrace();
         }
 
         return InputStream.nullInputStream();

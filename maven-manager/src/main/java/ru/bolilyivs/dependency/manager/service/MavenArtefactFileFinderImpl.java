@@ -10,7 +10,6 @@ import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 public class MavenArtefactFileFinderImpl implements MavenArtefactFileFinder {
@@ -27,6 +26,6 @@ public class MavenArtefactFileFinderImpl implements MavenArtefactFileFinder {
                 .map(e -> e.attr("href"))
                 .filter(ArtefactFileType::isContainsExtension)
                 .map(filename -> ArtefactFile.of(filename, ArtefactFileType.ofFileName(filename), metaData.getPath().toString()))
-                .collect(Collectors.toList());
+                .toList();
     }
 }

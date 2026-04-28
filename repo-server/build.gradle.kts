@@ -13,36 +13,36 @@ repositories {
 
 dependencies {
     implementation(project(":maven-manager"))
-    annotationProcessor(libs.micronaut.http.validation)
-    annotationProcessor(libs.micronaut.serde.processor)
-    annotationProcessor(libs.micronaut.validation.processor)
     implementation(libs.micronaut.serde.jackson)
     implementation(libs.micronaut.validation)
     implementation(libs.jakarta.validation.api)
-    compileOnly(libs.micronaut.http.client)
-
     implementation(libs.micronaut.data.hibernate.jpa)
     implementation(libs.micronaut.jdbc.hikari)
+
+    annotationProcessor(libs.micronaut.http.validation)
+    annotationProcessor(libs.micronaut.serde.processor)
+    annotationProcessor(libs.micronaut.validation.processor)
     annotationProcessor(libs.micronaut.data.processor)
     annotationProcessor(libs.micronaut.data.document.processor)
-    runtimeOnly(libs.h2)
-
     annotationProcessor(libs.micronaut.openapi)
-    compileOnly(libs.micronaut.openapi.annotations)
+    annotationProcessor(libs.lombok)
 
+    runtimeOnly(libs.h2)
     runtimeOnly(libs.logback.classic)
-    testImplementation(libs.micronaut.http.client)
-    testRuntimeOnly(libs.junit.platform.launcher)
-
     runtimeOnly(libs.snakeyaml)
+    
+    compileOnly(libs.micronaut.http.client)
+    compileOnly(libs.micronaut.openapi.annotations)
+    compileOnly(libs.lombok)
 
+    testImplementation(libs.micronaut.http.client)
     testImplementation(libs.micronaut.test.junit5)
     testImplementation(libs.mockito.core)
 
-    compileOnly(libs.lombok)
-    annotationProcessor(libs.lombok)
+    testRuntimeOnly(libs.junit.platform.launcher)
 
     testCompileOnly(libs.lombok)
+
     testAnnotationProcessor(libs.lombok)
 }
 

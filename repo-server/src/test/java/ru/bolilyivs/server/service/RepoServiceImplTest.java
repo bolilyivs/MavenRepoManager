@@ -19,7 +19,7 @@ import java.util.List;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class RepoServiceImplTest {
 
-    private final Repo ORIGIN = new Repo("test", "https://repo1.maven.org/maven2", RepoType.REMOTE);
+    private static final Repo ORIGIN = new Repo("test", "https://repo1.maven.org/maven2", RepoType.REMOTE);
     @Inject
     private RepoService repoService;
     @Inject
@@ -80,8 +80,7 @@ class RepoServiceImplTest {
     @Test
     void delete() {
         repoService.delete(ORIGIN.getName());
-        Assertions.assertThrows(RepoException.class, () ->
-                repoService.get(ORIGIN.getName())
-        );
+        String name = ORIGIN.getName();
+        Assertions.assertThrows(RepoException.class, () -> repoService.get(name));
     }
 }

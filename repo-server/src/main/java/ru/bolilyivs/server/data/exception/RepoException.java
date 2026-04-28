@@ -8,7 +8,7 @@ import lombok.Setter;
 @Setter
 public class RepoException extends RuntimeException {
 
-    private HttpStatus httpStatus;
+    private final HttpStatus httpStatus;
 
     public RepoException(String message, HttpStatus httpStatus) {
         super(message);
@@ -17,6 +17,7 @@ public class RepoException extends RuntimeException {
 
     public RepoException(String message) {
         super(message);
+        this.httpStatus = HttpStatus.INTERNAL_SERVER_ERROR;
     }
 
     public RepoException() {

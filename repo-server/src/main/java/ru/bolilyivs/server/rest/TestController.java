@@ -17,6 +17,7 @@ import ru.bolilyivs.server.service.FindService;
 import ru.bolilyivs.server.service.RepoService;
 
 import java.nio.file.Path;
+import java.util.List;
 
 @Controller("/api/v1/test/")
 @RequiredArgsConstructor
@@ -28,14 +29,14 @@ public class TestController {
     private final FindService findService;
 
     @Get(uri = "repo/{repoName}/find/artefactId") // (2)
-    public MessageDto<?> findGroupId(@PathVariable String repoName, @Parameter String groupId) {
+    public MessageDto<List<String>> findGroupId(@PathVariable String repoName, @Parameter String groupId) {
         return MessageDto.of(findService.findArtefactId(repoName, groupId));
     }
 
     @Get(uri = "repo/{repoName}/find/version") // (2)
-    public MessageDto<?> findGroupId(@PathVariable String repoName,
-                                     @Parameter String groupId,
-                                     @Parameter String artefactId) {
+    public MessageDto<List<String>> findGroupId(@PathVariable String repoName,
+                                                @Parameter String groupId,
+                                                @Parameter String artefactId) {
         return MessageDto.of(findService.findVersion(repoName, groupId, artefactId));
     }
 

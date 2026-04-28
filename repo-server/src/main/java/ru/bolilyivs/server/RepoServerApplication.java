@@ -12,7 +12,7 @@ import io.swagger.v3.oas.annotations.info.Info;
         )
 )
 public class RepoServerApplication {
-    static void main(String[] args) {
+    static void main() {
         Micronaut.run(RepoServerApplication.class);
     }
 }
