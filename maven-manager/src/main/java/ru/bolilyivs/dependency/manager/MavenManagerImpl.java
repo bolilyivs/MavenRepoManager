@@ -1,6 +1,7 @@
 package ru.bolilyivs.dependency.manager;
 
 import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
@@ -10,7 +11,6 @@ import ru.bolilyivs.dependency.manager.service.MavenArtefactFileFinder;
 import ru.bolilyivs.dependency.manager.service.MavenArtefactIdFinder;
 import ru.bolilyivs.dependency.manager.service.MavenDependencyFinder;
 
-import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
@@ -27,11 +27,15 @@ public class MavenManagerImpl implements MavenManager {
     public Artefact findArtefactWithFilesAndDependencies(Repository repository, ArtefactId id) {
         Artefact artefact = resolveDependency(repository, id);
         Set<Artefact> artefacts = artefact.getFlatListDependencies();
-        artefacts.forEach(art -> {
-            List<ArtefactFile> artefactFiles = findArtefactFiles(repository, art.getId());
-            art.setFiles(artefactFiles);
-        });
+        artefacts.forEach(art -> setArtefactFiles(repository, art));
         return artefact;
+    }
+
+    @SneakyThrows
+    private void setArtefactFiles(Repository repository, Artefact artefact) {
+        List<ArtefactFile> artefactFiles = findArtefactFiles(repository, artefact.getId());
+        artefact.setFiles(artefactFiles);
+        Thread.sleep(200);
     }
 
     @Override
@@ -53,11 +57,6 @@ public class MavenManagerImpl implements MavenManager {
     @Override
     public Path downloadArtefactToFile(Repository repository, ArtefactFile artefactFile) {
         return mavenArtefactDownloader.downloadArtefactToFile(repository, artefactFile);
-    }
-
-    @Override
-    public InputStream downloadArtefactWithInputStream(Repository repository, ArtefactFile artefactFile) {
-        return mavenArtefactDownloader.downloadArtefact(repository, artefactFile);
     }
 
     @Override

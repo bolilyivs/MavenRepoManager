@@ -42,7 +42,7 @@ public class DownloadServiceImpl implements DownloadService {
 
     private void asyncDownloadWithDependency(String repoName, String dependecyString) {
         RepoDto repoDto = repoService.get(repoName);
-        Artefact artefact = findService.findArtefactWithDependencies(repoName, dependecyString);
+        Artefact artefact = findService.findArtefactWithDependenciesAndFiles(repoName, dependecyString);
         Set<Artefact> dependencySet = artefact.getFlatListDependencies();
         dependencySet.forEach(dep -> tryDownloadArtefact(repoDto, dep));
         log.info("Downloaded done!");
@@ -52,7 +52,8 @@ public class DownloadServiceImpl implements DownloadService {
     private void tryDownloadArtefact(RepoDto repoDto, Artefact artefact) {
         for (int i = 0; i < 3; i++) {
             try {
-                downloadArtefact(repoDto, artefact.getId());
+                Repository repository = new Repository(repoDto.name(), repoDto.url());
+                downloadArtefact(repository, artefact);
                 return;
             } catch (Exception e) {
                 log.error("Download artefact failed: attempt {}", i + 1, e);
@@ -64,12 +65,23 @@ public class DownloadServiceImpl implements DownloadService {
     @SneakyThrows
     private void downloadArtefact(RepoDto repoDto, ArtefactId artefactId) {
         Repository repository = new Repository(repoDto.name(), repoDto.url());
-
         Artefact artefact = findService.findArtefactWithFiles(repository, artefactId);
+        downloadArtefact(repository, artefact);
+        log.info("{} is downloaded", artefact.getId());
+    }
+
+    @SneakyThrows
+    private void downloadArtefact(Repository repository, Artefact artefact) {
         artefact.getFiles()
                 .stream()
-                .filter(artefactFile -> !Files.exists(Path.of(appConfig.getRootRepoDir(), repoDto.name(), artefactFile.path().toString())))
-                .forEach(file -> mavenManager.downloadArtefactToFile(repository, file));
+                .filter(artefactFile ->
+                        !Files.exists(Path.of(appConfig.getRootRepoDir(), repository.name(), artefactFile.path().toString()))
+                )
+                .forEach(file -> {
+                    log.info("Start download file: {}", file.filename());
+                    Path path = mavenManager.downloadArtefactToFile(repository, file);
+                    log.info("Downloaded: {}", path.toAbsolutePath());
+                });
         log.info("{} is downloaded", artefact.getId());
     }
 }

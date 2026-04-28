@@ -5,7 +5,6 @@ import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 
-import java.io.InputStream;
 import java.nio.file.Path;
 import java.util.List;
 
@@ -20,8 +19,6 @@ public interface MavenManager {
     Artefact resolveDependency(Repository repository, ArtefactId id);
 
     Path downloadArtefactToFile(Repository repository, ArtefactFile artefactFile);
-
-    InputStream downloadArtefactWithInputStream(Repository repository, ArtefactFile artefactFile);
 
     List<String> listArtefactId(Repository repository, String groupId);
 

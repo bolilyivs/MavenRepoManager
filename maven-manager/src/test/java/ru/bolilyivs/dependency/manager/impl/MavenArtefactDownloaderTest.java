@@ -14,10 +14,8 @@ import ru.bolilyivs.dependency.manager.util.RepositoryTestFactory;
 
 import java.io.File;
 import java.io.IOException;
-import java.io.InputStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.StandardCopyOption;
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 class MavenArtefactDownloaderTest {
@@ -47,20 +45,6 @@ class MavenArtefactDownloaderTest {
 
         Path actual = this.downloader.downloadArtefactToFile(repository, artefactFile);
         Assertions.assertTrue(Files.exists(actual));
-    }
-
-    @Test
-    void downloadArtefact() throws IOException {
-        Repository repository = RepositoryTestFactory.createCentralTestRepository();
-        ArtefactId metaData = ArtefactIdTestFactory.createArtefactIdTest();
-        ArtefactFile artefactFile = ArtefactFile.of(FILENAME, ArtefactFileType.JAR, metaData);
-
-        Path targetPath = createTargetPath(artefactFile);
-
-        try (InputStream is = this.downloader.downloadArtefact(repository, artefactFile)) {
-            Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
-        }
-        Assertions.assertTrue(Files.exists(targetPath));
     }
 
     @SneakyThrows

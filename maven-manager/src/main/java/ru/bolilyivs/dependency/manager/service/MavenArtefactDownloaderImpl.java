@@ -13,6 +13,7 @@ import java.net.http.HttpResponse;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
+import java.util.function.Consumer;
 
 @RequiredArgsConstructor
 public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
@@ -27,25 +28,29 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
         if (Files.exists(targetPath)) {
             return targetPath.toAbsolutePath();
         }
-
-        try (InputStream is = downloadArtefact(repository, artefactFile)) {
-            Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
-        }
+        downloadArtefact(repository, artefactFile, is -> copy(is, targetPath));
         return targetPath.toAbsolutePath();
     }
 
 
     @Override
     @SneakyThrows
-    public InputStream downloadArtefact(Repository repository, ArtefactFile artefactFile) {
+    public void downloadArtefact(Repository repository, ArtefactFile artefactFile, Consumer<InputStream> process) {
         URI srcURI = createURI(repository, artefactFile);
         HttpRequest request = createHttpRequest(srcURI);
 
         try (HttpClient client = HttpClient.newHttpClient()) {
             HttpResponse<InputStream> response = client.send(request,
                     HttpResponse.BodyHandlers.ofInputStream());
-            return response.body();
+            try (InputStream is = response.body()) {
+                process.accept(is);
+            }
         }
+    }
+
+    @SneakyThrows
+    private void copy(InputStream is, Path targetPath) {
+        Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
     }
 
     private HttpRequest createHttpRequest(URI uri) {
