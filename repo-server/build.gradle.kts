@@ -18,6 +18,8 @@ dependencies {
     implementation(libs.jakarta.validation.api)
     implementation(libs.micronaut.data.hibernate.jpa)
     implementation(libs.micronaut.jdbc.hikari)
+    implementation("io.micronaut.flyway:micronaut-flyway")
+    runtimeOnly("org.flywaydb:flyway-core")
 
     annotationProcessor(libs.micronaut.http.validation)
     annotationProcessor(libs.micronaut.serde.processor)
@@ -30,7 +32,7 @@ dependencies {
     runtimeOnly(libs.h2)
     runtimeOnly(libs.logback.classic)
     runtimeOnly(libs.snakeyaml)
-    
+
     compileOnly(libs.micronaut.http.client)
     compileOnly(libs.micronaut.openapi.annotations)
     compileOnly(libs.lombok)

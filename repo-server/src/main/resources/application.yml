@@ -25,7 +25,13 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: update
-        show_sql: true
+        show_sql: true           # Prints SQL to stdout
+flyway:
+  datasources:
+    default:
+      enabled: false
+      locations:
+        - classpath:db/migration
 logger:
   levels:
     root: ERROR

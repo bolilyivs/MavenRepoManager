@@ -1,9 +1,6 @@
 package ru.bolilyivs.server.data.model;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -23,6 +20,7 @@ public class Repo {
     String name;
     @Column(name = "url")
     String url;
-    @Column(name = "repoType", nullable = false)
+    @Column(name = "repo_type", nullable = false)
+    @Enumerated(EnumType.STRING)
     RepoType repoType;
 }

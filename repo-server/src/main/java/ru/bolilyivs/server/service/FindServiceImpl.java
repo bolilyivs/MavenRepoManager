@@ -9,6 +9,7 @@ import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.server.data.dto.RepoDto;
 
 import java.util.List;
+import java.util.Objects;
 
 @Singleton
 @RequiredArgsConstructor
@@ -16,23 +17,34 @@ public class FindServiceImpl implements FindService {
 
     private final MavenManager mavenManager;
     private final RepoService repoService;
+    private final ArtefactService artefactService;
 
     @Override
     public Artefact findArtefactWithDependenciesAndFiles(String repoName, String dependecyString) {
-        Repository repository = findRepository(repoName);
-        return mavenManager.findArtefactWithFilesAndDependencies(repository, ArtefactId.of(dependecyString));
+        return artefactService.findById(dependecyString).orElseGet(() -> {
+            Repository repository = findRepository(repoName);
+            Artefact artefact = mavenManager.findArtefactWithFilesAndDependencies(repository, ArtefactId.of(dependecyString));
+            if (Objects.nonNull(artefact)) {
+                artefactService.save(artefact);
+            }
+            return artefact;
+        });
     }
 
     @Override
     public Artefact findArtefactWithDependencies(String repoName, String dependecyString) {
-        Repository repository = findRepository(repoName);
-        return mavenManager.resolveDependency(repository, ArtefactId.of(dependecyString));
+        return artefactService.findByIdWithoutFiles(dependecyString).orElseGet(() -> {
+            Repository repository = findRepository(repoName);
+            return mavenManager.resolveDependency(repository, ArtefactId.of(dependecyString));
+        });
     }
 
     @Override
     public Artefact findArtefactWithFiles(String repoName, String dependecyString) {
-        Repository repository = findRepository(repoName);
-        return findArtefactWithFiles(repository, ArtefactId.of(dependecyString));
+        return artefactService.findByIdWithoutDependecies(dependecyString).orElseGet(() -> {
+            Repository repository = findRepository(repoName);
+            return mavenManager.findArtefactWithFiles(repository, ArtefactId.of(dependecyString));
+        });
     }
 
     @Override

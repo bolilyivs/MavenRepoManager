@@ -2,7 +2,6 @@
 micronaut = "4.9.2"
 ivy = "2.5.3"
 mockito = "5.23.0"
-h2 = "2.4.240"
 snakeyaml = "2.6"
 logback = "1.5.32"
 junit = "6.0.2"
@@ -37,7 +36,7 @@ micronaut-openapi-annotations = { group = "io.micronaut.openapi", name = "micron
 micronaut-test-junit5 = { group = "io.micronaut.test", name = "micronaut-test-junit5" }
 
 jakarta-validation-api = { group = "jakarta.validation", name = "jakarta.validation-api" }
-h2 = { group = "com.h2database", name = "h2", version.ref = "h2" }
+h2 = { group = "com.h2database", name = "h2" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }

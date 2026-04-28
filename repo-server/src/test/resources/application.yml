@@ -15,9 +15,10 @@ micronaut:
 datasources:
   default:
     password: ""
-    url: jdbc:h2:mem:default;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    url: jdbc:h2:mem:default;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
     username: sa
     driver-class-name: org.h2.Driver
+    schema-generate: none
 
 jpa:
   default:
@@ -25,12 +26,22 @@ jpa:
       hibernate:
         hbm2ddl:
           auto: update
-        show_sql: true
+        show_sql: true           # Prints SQL to stdout
+flyway:
+  datasources:
+    default:
+      enabled: false
+      locations:
+        - classpath:databasemigrations
+        - databasemigrations
+
 logger:
   levels:
     root: ERROR
     io.micronaut: ERROR
     ru.bolilyivs: INFO
+    org.flywaydb: DEBUG
+    io.micronaut.flyway: DEBUG
 
 app:
   cacheDir: "./cache/"
