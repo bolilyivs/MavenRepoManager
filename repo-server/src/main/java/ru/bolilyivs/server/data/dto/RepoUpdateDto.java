@@ -8,9 +8,9 @@ import ru.bolilyivs.server.data.model.RepoType;
 @Serdeable
 @Schema(name = "RepoUpdateDto", description = "Репозиторий")
 public record RepoUpdateDto(
-        @Schema(description = "Адрес", requiredMode = Schema.RequiredMode.REQUIRED)
+        @Schema(description = "Адрес")
         String url,
-        @Schema(description = "Тип репозитория", requiredMode = Schema.RequiredMode.REQUIRED)
+        @Schema(description = "Тип репозитория")
         @NotNull(message = "Тип репозитория должно быть выбран: REMOTE, LOCAL")
         RepoType repoType
 ) {

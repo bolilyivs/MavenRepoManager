@@ -9,12 +9,12 @@ import ru.bolilyivs.server.data.model.RepoType;
 @Serdeable
 @Schema(name = "Repo", description = "Репозиторий")
 public record RepoDto(
-        @Schema(description = "Название", example = "central", requiredMode = Schema.RequiredMode.REQUIRED)
+        @Schema(description = "Название", example = "central")
         @NotBlank(message = "Название репозитория не должно быть пустым")
         String name,
-        @Schema(description = "Адрес", example = "https://repo1.maven.org/maven2", requiredMode = Schema.RequiredMode.REQUIRED)
+        @Schema(description = "Адрес", example = "https://repo1.maven.org/maven2")
         String url,
-        @Schema(description = "Тип репозитория", example = "REMOTE", requiredMode = Schema.RequiredMode.REQUIRED)
+        @Schema(description = "Тип репозитория", example = "REMOTE")
         @NotNull(message = "Тип репозитория должно быть выбран: REMOTE, LOCAL")
         RepoType repoType
 ) {
