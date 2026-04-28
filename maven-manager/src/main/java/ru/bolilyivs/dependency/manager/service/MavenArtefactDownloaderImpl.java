@@ -36,6 +36,7 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
 
 
     @Override
+    @SneakyThrows
     public InputStream downloadArtefact(Repository repository, ArtefactFile artefactFile) {
         URI srcURI = createURI(repository, artefactFile);
         HttpRequest request = createHttpRequest(srcURI);
@@ -45,8 +46,6 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
                     HttpResponse.BodyHandlers.ofInputStream());
             return response.body();
         }
-
-        return InputStream.nullInputStream();
     }
 
     private HttpRequest createHttpRequest(URI uri) {
