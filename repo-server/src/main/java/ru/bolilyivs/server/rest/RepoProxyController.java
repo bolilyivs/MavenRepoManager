@@ -13,8 +13,8 @@ import java.nio.file.Path;
 
 @Controller("/repo")
 @RequiredArgsConstructor
-@Tag(name = "RepoController")
-public class RepoController {
+@Tag(name = "RepoProxyController")
+public class RepoProxyController {
 
     private final RepoProxyService repoProxyService;
 

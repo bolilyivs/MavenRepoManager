@@ -19,7 +19,6 @@ public class RepoProxyServiceImpl implements RepoProxyService {
     private final AppConfig appConfig;
     private final MavenArtefactDownloader mavenArtefactDownloader;
     private final RepoService repoService;
-    private final DownloadService downloadService;
 
     @Override
     public Path getFile(String repoName, String artefactPath) {

@@ -13,7 +13,7 @@ import java.util.Set;
 
 @MicronautTest
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
-class ArtefactServiceTest {
+class ArtefactRepositoryTest {
 
     @Inject
     private ArtefactRepository artefactRepository;
