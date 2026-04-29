@@ -29,6 +29,7 @@ micronaut-data-hibernate-jpa = { group = "io.micronaut.data", name = "micronaut-
 micronaut-data-processor = { group = "io.micronaut.data", name = "micronaut-data-processor" }
 micronaut-data-document-processor = { group = "io.micronaut.data", name = "micronaut-data-document-processor" }
 micronaut-jdbc-hikari = { group = "io.micronaut.sql", name = "micronaut-jdbc-hikari" }
+micronaut-flyway = { group = "io.micronaut.flyway", name = "micronaut-flyway" }
 
 micronaut-openapi = { group = "io.micronaut.openapi", name = "micronaut-openapi" }
 micronaut-openapi-annotations = { group = "io.micronaut.openapi", name = "micronaut-openapi-annotations" }
@@ -40,3 +41,4 @@ h2 = { group = "com.h2database", name = "h2" }
 mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
 snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+flyway-core = { group = "org.flywaydb", name = "flyway-core" }
