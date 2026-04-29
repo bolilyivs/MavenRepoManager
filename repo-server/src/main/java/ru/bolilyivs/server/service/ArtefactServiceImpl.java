@@ -39,9 +39,8 @@ public class ArtefactServiceImpl implements ArtefactService {
     }
 
     @Override
-    @Transactional
     public void save(Artefact artefact) {
-        ArtefactEntity entity = mapper.mapFrom(artefact, true);
+        ArtefactEntity entity = mapper.mapFrom(artefact);
         artefactRepository.save(entity);
     }
 

@@ -9,6 +9,7 @@ import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
 import ru.bolilyivs.dependency.manager.model.dependency.IvyDependency;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -68,13 +69,19 @@ public class MavenArtefactMapperImpl implements MavenArtefactMapper {
      */
     @Override
     public Artefact mapArtefactFrom(IvyDependency node, Map<ArtefactId, IvyDependency> mapDeps) {
+        return mapArtefactFrom(node, mapDeps, new HashMap<>());
+    }
+
+    private Artefact mapArtefactFrom(IvyDependency node, Map<ArtefactId, IvyDependency> mapDeps, Map<ArtefactId, Artefact> cache) {
+        Artefact artefact = cache.computeIfAbsent(node.id(), Artefact::of);
+
         List<Artefact> deps = node.dependencies().stream()
                 .map(iDepMetaData -> mapDeps.getOrDefault(iDepMetaData, null))
                 .filter(Objects::nonNull)
                 .map(ivyDependency -> mapArtefactFrom(ivyDependency, mapDeps))
                 .toList();
-
-        return Artefact.ofDependencies(node.id(), deps);
+        artefact.setDependencies(deps);
+        return artefact;
     }
 
     /**

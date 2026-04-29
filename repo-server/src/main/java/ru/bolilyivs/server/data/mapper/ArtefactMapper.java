@@ -8,25 +8,34 @@ import ru.bolilyivs.server.data.model.ArtefactEntity;
 import ru.bolilyivs.server.data.model.ArtefactFileEntity;
 
 import java.nio.file.Path;
+import java.util.HashMap;
 
 @Singleton
 public class ArtefactMapper {
 
-    public ArtefactEntity mapFrom(Artefact artefact, boolean withDependency) {
-        ArtefactEntity entity = new ArtefactEntity();
-        entity.setArtefactId(artefact.getId().toString());
-        artefact.getFiles()
-                .stream()
-                .map(this::mapFrom)
-                .forEach(entity::addFile);
+    public ArtefactEntity mapFrom(Artefact artefact) {
+        return mapFrom(artefact, new HashMap<>());
+    }
 
-        if (withDependency) {
-            artefact.getDependencies()
-                    .stream()
-                    .map(dep -> mapFrom(dep, withDependency))
-                    .forEach(entity::addDependency);
-        }
+    private ArtefactEntity mapFrom(Artefact artefact, HashMap<String, ArtefactEntity> cache) {
+        ArtefactEntity entity = createArtefactEntity(artefact, cache);
+        artefact.getDependencies()
+                .stream()
+                .map(dep -> mapFrom(dep, cache))
+                .forEach(entity::addDependency);
         return entity;
+    }
+
+    private ArtefactEntity createArtefactEntity(Artefact artefact, HashMap<String, ArtefactEntity> cache) {
+        return cache.computeIfAbsent(artefact.getId().toString(), (_) -> {
+            ArtefactEntity entity = new ArtefactEntity();
+            entity.setArtefactId(artefact.getId().toString());
+            artefact.getFiles()
+                    .stream()
+                    .map(this::mapFrom)
+                    .forEach(entity::addFile);
+            return entity;
+        });
     }
 
     public ArtefactFileEntity mapFrom(ArtefactFile file) {

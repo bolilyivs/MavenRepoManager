@@ -1,13 +1,13 @@
 package ru.bolilyivs.dependency.manager.model.artefact;
 
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Data
+@Getter
+@Setter
+@EqualsAndHashCode(of = "id")
 @RequiredArgsConstructor
 @AllArgsConstructor
 public class Artefact {

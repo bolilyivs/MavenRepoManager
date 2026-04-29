@@ -2,10 +2,7 @@ package ru.bolilyivs.server.data.model;
 
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
 
 @Entity
@@ -14,6 +11,7 @@ import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFileType;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@EqualsAndHashCode(of = {"artefact", "filename"})
 public class ArtefactFileEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
