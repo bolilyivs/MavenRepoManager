@@ -7,7 +7,7 @@ paths:
   /api/v1/repo:
     get:
       tags:
-      - ManagerController
+      - RepoManagerController
       operationId: list
       responses:
         "200":
@@ -20,7 +20,7 @@ paths:
                   $ref: "#/components/schemas/Repo"
     post:
       tags:
-      - ManagerController
+      - RepoManagerController
       operationId: create
       requestBody:
         content:
@@ -34,7 +34,7 @@ paths:
   /api/v1/repo/{repoName}:
     get:
       tags:
-      - ManagerController
+      - RepoManagerController
       operationId: get
       parameters:
       - name: repoName
@@ -51,7 +51,7 @@ paths:
                 $ref: "#/components/schemas/Repo"
     put:
       tags:
-      - ManagerController
+      - RepoManagerController
       operationId: update
       parameters:
       - name: repoName
@@ -70,7 +70,7 @@ paths:
           description: update 200 response
     delete:
       tags:
-      - ManagerController
+      - RepoManagerController
       operationId: remove
       parameters:
       - name: repoName
@@ -82,7 +82,7 @@ paths:
         "200":
           description: remove 200 response
   /api/v1/repo/{repoName}/download/artefact:
-    get:
+    post:
       tags:
       - DownloadController
       operationId: artefact
@@ -92,20 +92,46 @@ paths:
         required: true
         schema:
           type: string
-      - name: dependecyString
-        in: query
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dependecyString:
+                  type: string
         required: true
-        explode: false
-        schema:
-          type: string
       responses:
         "200":
           description: artefact 200 response
-  /api/v1/repo/{repoName}/download/dependencies:
-    get:
+  /api/v1/repo/{repoName}/download/artefact/dependencies:
+    post:
       tags:
       - DownloadController
-      operationId: dependencies
+      operationId: artefactWithDependencies
+      parameters:
+      - name: repoName
+        in: path
+        required: true
+        schema:
+          type: string
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                dependecyString:
+                  type: string
+        required: true
+      responses:
+        "200":
+          description: artefactWithDependencies 200 response
+  /api/v1/repo/{repoName}/find/artefact:
+    get:
+      tags:
+      - FindController
+      operationId: findArtefact
       parameters:
       - name: repoName
         in: path
@@ -120,12 +146,40 @@ paths:
           type: string
       responses:
         "200":
-          description: dependencies 200 response
-  /api/v1/repo/{repoName}/upload/artefact:
+          description: findArtefact 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArtefactDto"
+  /api/v1/repo/{repoName}/find/artefact/files:
+    get:
+      tags:
+      - FindController
+      operationId: findArtefactWithFiles
+      parameters:
+      - name: repoName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: dependecyString
+        in: query
+        required: true
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: findArtefactWithFiles 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ArtefactDto"
+  /api/v1/repo/{repoName}/upload/artefact/file:
     post:
       tags:
       - UploadController
-      operationId: dependencies_1
+      operationId: artefactFile
       parameters:
       - name: repoName
         in: path
@@ -153,23 +207,53 @@ paths:
         required: true
       responses:
         "200":
-          description: dependencies_1 200 response
+          description: artefactFile 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageDto_1"
+  /api/v1/test/repo/{repoName}/find/artefactId:
+    get:
+      tags:
+      - TestController
+      operationId: findGroupId
+      parameters:
+      - name: repoName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: groupId
+        in: query
+        required: true
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: findGroupId 200 response
           content:
             application/json:
               schema:
                 $ref: "#/components/schemas/MessageDto"
-  /api/v1/search/{repoName}/find/artefact:
+  /api/v1/test/repo/{repoName}/find/version:
     get:
       tags:
-      - SearchController
-      operationId: findArtefact
+      - TestController
+      operationId: findGroupId_1
       parameters:
       - name: repoName
         in: path
         required: true
         schema:
           type: string
-      - name: dependecyString
+      - name: groupId
+        in: query
+        required: true
+        explode: false
+        schema:
+          type: string
+      - name: artefactId
         in: query
         required: true
         explode: false
@@ -177,39 +261,75 @@ paths:
           type: string
       responses:
         "200":
-          description: findArtefact 200 response
+          description: findGroupId_1 200 response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DependencyDto_1"
-  /api/v1/search/{repoName}/find/dependencies:
+                $ref: "#/components/schemas/MessageDto"
+  /api/v1/test/repo/{repoName}/path/local:
     get:
       tags:
-      - SearchController
-      operationId: findDependencies
+      - TestController
+      operationId: getLocalPath
       parameters:
       - name: repoName
         in: path
         required: true
         schema:
           type: string
-      - name: dependecyString
+      - name: artefactIdString
         in: query
         required: true
         explode: false
         schema:
           type: string
+      - name: artefactFileType
+        in: query
+        required: true
+        explode: false
+        schema:
+          $ref: "#/components/schemas/ArtefactFileType"
       responses:
         "200":
-          description: findDependencies 200 response
+          description: getLocalPath 200 response
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/DependencyDto"
+                $ref: "#/components/schemas/MessageDto_1"
+  /api/v1/test/repo/{repoName}/path/remote:
+    get:
+      tags:
+      - TestController
+      operationId: getRemotePath
+      parameters:
+      - name: repoName
+        in: path
+        required: true
+        schema:
+          type: string
+      - name: artefactIdString
+        in: query
+        required: true
+        explode: false
+        schema:
+          type: string
+      - name: artefactFileType
+        in: query
+        required: true
+        explode: false
+        schema:
+          $ref: "#/components/schemas/ArtefactFileType"
+      responses:
+        "200":
+          description: getRemotePath 200 response
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/MessageDto_1"
   /repo/{repoName}/{otherPath}:
     get:
       tags:
-      - RepoController
+      - RepoProxyController
       operationId: get_1
       parameters:
       - name: repoName
@@ -232,30 +352,7 @@ paths:
                 format: binary
 components:
   schemas:
-    ArtefactDto.ArtefactFileDto:
-      type: object
-      properties:
-        filename:
-          type: string
-        type:
-          type: string
-        path:
-          type: string
-    DependencyDto:
-      type: object
-      properties:
-        groupId:
-          type: string
-        artifactId:
-          type: string
-        version:
-          type: string
-        dependencies:
-          type: array
-          items:
-            $ref: "#/components/schemas/DependencyDto"
-      description: Зависимость
-    DependencyDto_1:
+    ArtefactDto:
       type: object
       properties:
         groupId:
@@ -268,20 +365,54 @@ components:
           type: array
           items:
             $ref: "#/components/schemas/ArtefactDto.ArtefactFileDto"
+        dependencies:
+          type: array
+          items:
+            $ref: "#/components/schemas/ArtefactDto"
       description: Зависимость
+    ArtefactDto.ArtefactFileDto:
+      type: object
+      properties:
+        filename:
+          type: string
+        type:
+          type: string
+        path:
+          type: string
+    ArtefactFileType:
+      type: string
+      enum:
+      - JAVADOC
+      - SOURCES_JAR
+      - JAR
+      - MODULE
+      - POM
     MessageDto:
+      type: object
+      properties:
+        message:
+          type: array
+          items:
+            type: string
+      description: Сообщение
+    MessageDto_1:
       type: object
       properties:
         message:
           type: string
       description: Сообщение
     Repo:
+      required:
+      - name
+      - repoType
       type: object
       properties:
         name:
+          minLength: 1
           type: string
           description: Название
           example: central
+          x-size-message: Название репозитория не должно быть пустым
         url:
           type: string
           description: Адрес
@@ -289,6 +420,7 @@ components:
         repoType:
           description: Тип репозитория
           example: REMOTE
+          x-not-null-message: "Тип репозитория должно быть выбран: REMOTE, LOCAL"
           allOf:
           - $ref: "#/components/schemas/RepoType"
       description: Репозиторий
@@ -300,6 +432,8 @@ components:
       - REMOTE
       - LOCAL
     RepoUpdateDto:
+      required:
+      - repoType
       type: object
       properties:
         url:
@@ -307,6 +441,7 @@ components:
           description: Адрес
         repoType:
           description: Тип репозитория
+          x-not-null-message: "Тип репозитория должно быть выбран: REMOTE, LOCAL"
           allOf:
           - $ref: "#/components/schemas/RepoType"
       description: Репозиторий

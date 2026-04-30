@@ -27,7 +27,7 @@ public class ArtefactMapper {
     }
 
     private ArtefactEntity createArtefactEntity(Artefact artefact, HashMap<String, ArtefactEntity> cache) {
-        return cache.computeIfAbsent(artefact.getId().toString(), (_) -> {
+        return cache.computeIfAbsent(artefact.getId().toString(), _ -> {
             ArtefactEntity entity = new ArtefactEntity();
             entity.setArtefactId(artefact.getId().toString());
             artefact.getFiles()

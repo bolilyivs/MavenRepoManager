@@ -11,7 +11,7 @@ import ru.bolilyivs.server.service.FindService;
 
 @Controller("/api/v1/repo/")
 @RequiredArgsConstructor
-@Tag(name = "SearchController")
+@Tag(name = "FindController")
 public class FindController {
 
     private final FindService findService;
@@ -19,11 +19,6 @@ public class FindController {
     @Get(uri = "{repoName}/find/artefact") // (2)
     public ArtefactDto findArtefact(@PathVariable String repoName, @Parameter String dependecyString) {
         return ArtefactDto.of(findService.findArtefactWithDependenciesAndFiles(repoName, dependecyString));
-    }
-
-    @Get(uri = "{repoName}/find/artefact/dependencies") // (2)
-    public ArtefactDto findArtefactWithDependencies(@PathVariable String repoName, @Parameter String dependecyString) {
-        return ArtefactDto.of(findService.findArtefactWithDependencies(repoName, dependecyString));
     }
 
     @Get(uri = "{repoName}/find/artefact/files") // (2)

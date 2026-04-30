@@ -32,14 +32,6 @@ public class FindServiceImpl implements FindService {
     }
 
     @Override
-    public Artefact findArtefactWithDependencies(String repoName, String dependecyString) {
-        return artefactService.findByIdWithoutFiles(dependecyString).orElseGet(() -> {
-            Repository repository = findRepository(repoName);
-            return mavenManager.resolveDependency(repository, ArtefactId.of(dependecyString));
-        });
-    }
-
-    @Override
     public Artefact findArtefactWithFiles(String repoName, String dependecyString) {
         return artefactService.findByIdWithoutDependecies(dependecyString).orElseGet(() -> {
             Repository repository = findRepository(repoName);

@@ -10,8 +10,6 @@ public interface FindService {
 
     Artefact findArtefactWithDependenciesAndFiles(String repoName, String dependecyString);
 
-    Artefact findArtefactWithDependencies(String repoName, String dependecyString);
-
     Artefact findArtefactWithFiles(String repoName, String dependecyString);
 
     Artefact findArtefactWithFiles(Repository repository, ArtefactId metaData);

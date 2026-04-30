@@ -23,6 +23,8 @@ import static org.mockito.Mockito.when;
 @MicronautTest
 class FindServiceImplTest {
 
+    public static final String ARTEFACT_ID_ROOT = "org.apache.commons:commons-text:1.15.0";
+    public static final String ARTEFACT_ID_DEP = "org.apache.commons:commons-lang3:3.20.0";
     @Inject
     private FindService findService;
 
@@ -52,36 +54,35 @@ class FindServiceImplTest {
     @Test
     void findArtefactWithFilesWithDependencies() {
         Artefact excepted = Artefact.ofDependencies(
-                ArtefactId.of("org.apache.commons:commons-text:1.15.0"),
+                ArtefactId.of(ARTEFACT_ID_ROOT),
                 List.of(
-                        Artefact.of(ArtefactId.of("org.apache.commons:commons-lang3:3.20.0"))
+                        Artefact.of(ArtefactId.of(ARTEFACT_ID_DEP))
                 )
         );
-        when(mavenManager.resolveDependency(any(), any())).thenReturn(excepted);
+        when(mavenManager.findArtefactWithFilesAndDependencies(any(), any())).thenReturn(excepted);
 
-        Artefact actual = findService.findArtefactWithDependencies("test", "org.apache.commons:commons-text:1.15.0");
+        Artefact actual = findService.findArtefactWithDependenciesAndFiles("test", ARTEFACT_ID_ROOT);
 
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(excepted.getId(), actual.getId());
         Assertions.assertFalse(actual.getDependencies().isEmpty());
-
     }
 
     @Test
     void findArtefactWithFiles() {
         Artefact excepted = Artefact.ofArtefactFiles(
-                ArtefactId.of("org.apache.commons:commons-text:1.15.0"),
+                ArtefactId.of(ARTEFACT_ID_ROOT),
                 List.of(
                         ArtefactFile.of(
                                 "commons-text-1.15.0.jar",
                                 ArtefactFileType.JAR,
-                                ArtefactId.of("org.apache.commons:commons-text:1.15.0")
+                                ArtefactId.of(ARTEFACT_ID_ROOT)
                         )
                 )
         );
         when(mavenManager.findArtefactWithFiles(any(), any())).thenReturn(excepted);
 
-        Artefact actual = findService.findArtefactWithFiles("test", "org.apache.commons:commons-text:1.15.0");
+        Artefact actual = findService.findArtefactWithFiles("test", ARTEFACT_ID_ROOT);
 
         Assertions.assertNotNull(actual);
         Assertions.assertEquals(excepted.getId(), actual.getId());
