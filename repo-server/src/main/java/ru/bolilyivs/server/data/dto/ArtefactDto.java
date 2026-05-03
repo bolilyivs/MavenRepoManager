@@ -11,15 +11,15 @@ import java.util.List;
 @Serdeable
 @Schema(name = "ArtefactDto", description = "Зависимость")
 public record ArtefactDto(
-        @Schema
+        @Schema(description = "Организация", example = "org.apache.commons")
         String groupId,
-        @Schema
+        @Schema(description = "Название артефакта", example = "commons-text")
         String artifactId,
-        @Schema
+        @Schema(description = "Версия артефакта", example = "1.15.0")
         String version,
-        @Schema
+        @Schema(description = "Файлы артефакта")
         List<ArtefactFileDto> files,
-        @Schema
+        @Schema(description = "Зависимости артефакта")
         List<ArtefactDto> dependencies
 ) {
 
