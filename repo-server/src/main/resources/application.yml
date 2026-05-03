@@ -1,0 +1,43 @@
+micronaut:
+  router:
+    static-resources:
+      swagger:
+        paths: classpath:META-INF/swagger
+        mapping: /swagger/**
+      swagger-ui:
+        paths: classpath:META-INF/swagger/views/swagger-ui
+        mapping: /swagger-ui/**
+  openapi:
+    views:
+      swagger-ui:
+        enabled: true
+
+datasources:
+  default:
+    password: ""
+    url: jdbc:h2:file:./repodb;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    username: sa
+    driver-class-name: org.h2.Driver
+
+jpa:
+  default:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: update
+        show_sql: true           # Prints SQL to stdout
+flyway:
+  datasources:
+    default:
+      enabled: false
+      locations:
+        - classpath:db/migration
+logger:
+  levels:
+    root: ERROR
+    io.micronaut: ERROR
+    ru.bolilyivs: INFO
+
+app:
+  cacheDir: "J:/test/repos/cache/"
+  rootRepoDir: "J:/test/repos/root/"

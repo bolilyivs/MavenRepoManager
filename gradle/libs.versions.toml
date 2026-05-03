@@ -1,7 +1,44 @@
+[versions]
+micronaut = "4.9.2"
+ivy = "2.5.3"
+mockito = "5.23.0"
+snakeyaml = "2.6"
+logback = "1.5.32"
+junit = "6.0.2"
+lombok = "1.18.42"
+jsoup = "1.22.1"
+commons-io = "2.21.0"
+
+
 [libraries]
-lombok = { group = "org.projectlombok", name = "lombok", version = "1.18.42" }
-junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version = "6.0.2" }
-junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version = "6.0.2" }
-junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher", version = "6.0.2" }
-jsoup = { group = "org.jsoup", name = "jsoup", version = "1.22.1" }
-commons-io = { group = "commons-io", name = "commons-io", version = "2.21.0" }
+lombok = { group = "org.projectlombok", name = "lombok", version.ref = "lombok" }
+junit-jupiter = { group = "org.junit.jupiter", name = "junit-jupiter", version.ref = "junit" }
+junit-jupiter-api = { group = "org.junit.jupiter", name = "junit-jupiter-api", version.ref = "junit" }
+junit-platform-launcher = { group = "org.junit.platform", name = "junit-platform-launcher", version.ref = "junit" }
+jsoup = { group = "org.jsoup", name = "jsoup", version.ref = "jsoup" }
+commons-io = { group = "commons-io", name = "commons-io", version.ref = "commons-io" }
+ivy = { group = "org.apache.ivy", name = "ivy", version.ref = "ivy" }
+
+micronaut-http-validation = { group = "io.micronaut", name = "micronaut-http-validation" }
+micronaut-http-client = { group = "io.micronaut", name = "micronaut-http-client" }
+micronaut-serde-processor = { group = "io.micronaut.serde", name = "micronaut-serde-processor" }
+micronaut-serde-jackson = { group = "io.micronaut.serde", name = "micronaut-serde-jackson" }
+micronaut-validation-processor = { group = "io.micronaut.validation", name = "micronaut-validation-processor" }
+micronaut-validation = { group = "io.micronaut.validation", name = "micronaut-validation" }
+micronaut-data-hibernate-jpa = { group = "io.micronaut.data", name = "micronaut-data-hibernate-jpa" }
+micronaut-data-processor = { group = "io.micronaut.data", name = "micronaut-data-processor" }
+micronaut-data-document-processor = { group = "io.micronaut.data", name = "micronaut-data-document-processor" }
+micronaut-jdbc-hikari = { group = "io.micronaut.sql", name = "micronaut-jdbc-hikari" }
+micronaut-flyway = { group = "io.micronaut.flyway", name = "micronaut-flyway" }
+
+micronaut-openapi = { group = "io.micronaut.openapi", name = "micronaut-openapi" }
+micronaut-openapi-annotations = { group = "io.micronaut.openapi", name = "micronaut-openapi-annotations" }
+
+micronaut-test-junit5 = { group = "io.micronaut.test", name = "micronaut-test-junit5" }
+
+jakarta-validation-api = { group = "jakarta.validation", name = "jakarta.validation-api" }
+h2 = { group = "com.h2database", name = "h2" }
+mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mockito" }
+snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
+logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
+flyway-core = { group = "org.flywaydb", name = "flyway-core" }
