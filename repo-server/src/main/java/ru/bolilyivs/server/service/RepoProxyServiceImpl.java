@@ -2,6 +2,7 @@ package ru.bolilyivs.server.service;
 
 import jakarta.inject.Singleton;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
 import ru.bolilyivs.dependency.manager.service.MavenArtefactDownloader;
@@ -12,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
+@Slf4j
 @Singleton
 @RequiredArgsConstructor
 public class RepoProxyServiceImpl implements RepoProxyService {
@@ -23,6 +25,7 @@ public class RepoProxyServiceImpl implements RepoProxyService {
     @Override
     public Path getFile(String repoName, String artefactPath) {
         Path path = Paths.get(appConfig.getRootRepoDir(), repoName, artefactPath);
+        log.info("Request artefact: {}", path);
         if (Files.exists(path)) {
             return path;
         }
@@ -31,6 +34,7 @@ public class RepoProxyServiceImpl implements RepoProxyService {
         Repository repository = new Repository(repoDto.name(), repoDto.url());
         ArtefactFile artefactFile = ArtefactFile.of(artefactPath);
         mavenArtefactDownloader.downloadArtefactToFile(repository, artefactFile);
+
         return path;
     }
 
