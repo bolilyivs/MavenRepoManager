@@ -1,10 +1,10 @@
 package ru.bolilyivs.dependency.manager.ivy;
 
-import lombok.SneakyThrows;
 import org.apache.ivy.Ivy;
 import org.apache.ivy.core.module.id.ModuleRevisionId;
 import org.apache.ivy.core.report.ResolveReport;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactId;
+import ru.bolilyivs.dependency.manager.model.exception.MavenManagerException;
 
 import java.util.Arrays;
 import java.util.List;
@@ -18,7 +18,6 @@ public class IvyInstanceImpl implements IvyInstance {
         this.ivy = Ivy.newInstance(config.getSettings());
     }
 
-    @SneakyThrows
     @Override
     public ResolveReport resolve(ArtefactId metaData) {
         ModuleRevisionId ri = ModuleRevisionId.newInstance(
@@ -26,7 +25,12 @@ public class IvyInstanceImpl implements IvyInstance {
                 metaData.artifactId(),
                 metaData.version()
         );
-        return ivy.resolve(ri, this.config.getResolveOptions(), true);
+        try {
+            return ivy.resolve(ri, this.config.getResolveOptions(), true);
+        } catch (Exception ex) {
+            throw new MavenManagerException("Ошибка при построении дерева зависимостей", ex);
+        }
+
     }
 
     @Override

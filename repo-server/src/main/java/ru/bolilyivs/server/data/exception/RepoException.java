@@ -10,6 +10,12 @@ public class RepoException extends RuntimeException {
 
     private final HttpStatus httpStatus;
 
+    public RepoException(String message, HttpStatus httpStatus, Throwable cause) {
+        super(message, cause);
+        this.httpStatus = httpStatus;
+    }
+
+
     public RepoException(String message, HttpStatus httpStatus) {
         super(message);
         this.httpStatus = httpStatus;

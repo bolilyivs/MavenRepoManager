@@ -1,6 +1,5 @@
 package ru.bolilyivs.dependency.manager.impl;
 
-import lombok.SneakyThrows;
 import org.apache.commons.io.FileUtils;
 import org.junit.jupiter.api.*;
 import ru.bolilyivs.dependency.manager.model.Repository;
@@ -45,12 +44,5 @@ class MavenArtefactDownloaderTest {
 
         Path actual = this.downloader.downloadArtefactToFile(repository, artefactFile);
         Assertions.assertTrue(Files.exists(actual));
-    }
-
-    @SneakyThrows
-    private Path createTargetPath(ArtefactFile artefactFile) {
-        Path targetPath = Path.of(DOWNLOAD_PATH, artefactFile.path().toString());
-        Files.createDirectories(targetPath.getParent());
-        return targetPath;
     }
 }

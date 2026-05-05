@@ -1,7 +1,6 @@
 package ru.bolilyivs.dependency.manager;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.Artefact;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
@@ -14,6 +13,9 @@ import ru.bolilyivs.dependency.manager.service.MavenDependencyFinder;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 @RequiredArgsConstructor
 public class MavenManagerImpl implements MavenManager {
@@ -27,15 +29,17 @@ public class MavenManagerImpl implements MavenManager {
     public Artefact findArtefactWithFilesAndDependencies(Repository repository, ArtefactId id) {
         Artefact artefact = resolveDependency(repository, id);
         Set<Artefact> artefacts = artefact.getFlatListDependencies();
-        artefacts.forEach(art -> setArtefactFiles(repository, art));
+        try (ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor()) {
+            for (var artefactItem : artefacts) {
+                scheduler.schedule(() -> setArtefactFiles(repository, artefactItem), 200, TimeUnit.MILLISECONDS);
+            }
+        }
         return artefact;
     }
 
-    @SneakyThrows
     private void setArtefactFiles(Repository repository, Artefact artefact) {
         List<ArtefactFile> artefactFiles = findArtefactFiles(repository, artefact.getId());
         artefact.setFiles(artefactFiles);
-        Thread.sleep(200);
     }
 
     @Override

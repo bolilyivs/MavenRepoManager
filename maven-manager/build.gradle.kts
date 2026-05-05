@@ -12,6 +12,8 @@ repositories {
 dependencies {
     compileOnly(libs.lombok)
     annotationProcessor(libs.lombok)
+    runtimeOnly(libs.logback.classic)
+    implementation(libs.slf4j.api)
 
     implementation(libs.jsoup)
     implementation(libs.commons.io)

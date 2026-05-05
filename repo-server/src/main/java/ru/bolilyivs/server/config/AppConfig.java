@@ -10,4 +10,6 @@ import lombok.Setter;
 public class AppConfig {
     private String cacheDir;
     private String rootRepoDir;
+    private int downloadAttempts = 3;
+    private int attemptTimeout = 500;
 }

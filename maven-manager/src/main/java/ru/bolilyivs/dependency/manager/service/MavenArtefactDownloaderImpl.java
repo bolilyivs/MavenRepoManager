@@ -1,10 +1,12 @@
 package ru.bolilyivs.dependency.manager.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
+import lombok.extern.slf4j.Slf4j;
 import ru.bolilyivs.dependency.manager.model.Repository;
 import ru.bolilyivs.dependency.manager.model.artefact.ArtefactFile;
+import ru.bolilyivs.dependency.manager.model.exception.MavenManagerException;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.net.URI;
 import java.net.http.HttpClient;
@@ -15,13 +17,13 @@ import java.nio.file.Path;
 import java.nio.file.StandardCopyOption;
 import java.util.function.Consumer;
 
+@Slf4j
 @RequiredArgsConstructor
 public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
 
     private final String localRootRepoDir;
 
     @Override
-    @SneakyThrows
     public Path downloadArtefactToFile(Repository repository, ArtefactFile artefactFile) {
         Path targetPath = createTargetPath(repository, artefactFile);
 
@@ -34,7 +36,6 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
 
 
     @Override
-    @SneakyThrows
     public void downloadArtefact(Repository repository, ArtefactFile artefactFile, Consumer<InputStream> process) {
         URI srcURI = createURI(repository, artefactFile);
         HttpRequest request = createHttpRequest(srcURI);
@@ -45,12 +46,24 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
             try (InputStream is = response.body()) {
                 process.accept(is);
             }
+        } catch (IOException ioException) {
+            log.error(ioException.getMessage(), ioException);
+            throw new MavenManagerException("Ошибка получения файла.", ioException);
+        } catch (InterruptedException interruptedException) {
+            log.error(interruptedException.getMessage(), interruptedException);
+            Thread.currentThread().interrupt();
+            throw new MavenManagerException("Ошибка при выполнении запроса.", interruptedException);
         }
     }
 
-    @SneakyThrows
+
     private void copy(InputStream is, Path targetPath) {
-        Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
+        try {
+            Files.copy(is, targetPath, StandardCopyOption.REPLACE_EXISTING);
+        } catch (IOException ioException) {
+            log.error(ioException.getMessage(), ioException);
+            throw new MavenManagerException("Ошибка при сохранении файла", ioException);
+        }
     }
 
     private HttpRequest createHttpRequest(URI uri) {
@@ -64,10 +77,15 @@ public class MavenArtefactDownloaderImpl implements MavenArtefactDownloader {
         return URI.create("%s/%s".formatted(repository.url(), artefactFile.path().toString().replace("\\", "/")));
     }
 
-    @SneakyThrows
     private Path createTargetPath(Repository repository, ArtefactFile artefactFile) {
         Path targetPath = Path.of(localRootRepoDir, repository.name(), artefactFile.path().toString().replace("\\", "/"));
-        Files.createDirectories(targetPath.getParent());
+        try {
+            Files.createDirectories(targetPath.getParent());
+        } catch (IOException ioException) {
+            log.error(ioException.getMessage(), ioException);
+            throw new MavenManagerException("Ошибка при создании директорий", ioException);
+        }
+
         return targetPath;
     }
 }

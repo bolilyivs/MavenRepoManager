@@ -42,3 +42,4 @@ mockito-core = { group = "org.mockito", name = "mockito-core", version.ref = "mo
 snakeyaml = { group = "org.yaml", name = "snakeyaml", version.ref = "snakeyaml" }
 logback-classic = { group = "ch.qos.logback", name = "logback-classic", version.ref = "logback" }
 flyway-core = { group = "org.flywaydb", name = "flyway-core" }
+slf4j-api = { module = "org.slf4j:slf4j-api", version = "2.0.17" }

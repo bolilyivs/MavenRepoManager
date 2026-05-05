@@ -2,7 +2,7 @@ CREATE TABLE repo
 (
     name      VARCHAR(255) PRIMARY KEY,
     url       VARCHAR(255) NOT NULL,
-    repo_type VARCHAR(255) NOT NULL
+    repo_type ENUM("REMOTE", "LOCAL") NOT NULL
 );
 
 CREATE TABLE artefact

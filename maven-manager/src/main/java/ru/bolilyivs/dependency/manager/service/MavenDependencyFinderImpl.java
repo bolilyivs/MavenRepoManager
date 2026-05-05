@@ -1,7 +1,6 @@
 package ru.bolilyivs.dependency.manager.service;
 
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import org.apache.ivy.core.report.ResolveReport;
 import ru.bolilyivs.dependency.manager.ivy.IvyConfig;
 import ru.bolilyivs.dependency.manager.ivy.IvyConfigImpl;
@@ -23,7 +22,6 @@ public class MavenDependencyFinderImpl implements MavenDependencyFinder {
     private final String localCacheDir;
 
     @Override
-    @SneakyThrows
     public Artefact resolve(Repository repository, ArtefactId metaData) {
         IvyConfig ivyConfig = IvyConfigImpl.of(repository, localCacheDir);
         IvyInstance ivyInstance = new IvyInstanceImpl(ivyConfig);

@@ -1,7 +1,7 @@
 package ru.bolilyivs.server.service;
 
+import jakarta.inject.Named;
 import jakarta.inject.Singleton;
-import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
 import ru.bolilyivs.dependency.manager.MavenManager;
@@ -15,22 +15,38 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Set;
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.TimeUnit;
 
 @Slf4j
 @Singleton
-@RequiredArgsConstructor
 public class DownloadServiceImpl implements DownloadService {
 
     private final FindService findService;
     private final MavenManager mavenManager;
     private final RepoService repoService;
     private final AppConfig appConfig;
+    private final ExecutorService downloadExecutorService;
+
+    public DownloadServiceImpl(FindService findService,
+                               MavenManager mavenManager,
+                               RepoService repoService,
+                               AppConfig appConfig,
+                               @Named("downloadExecutorService")
+                               ExecutorService downloadExecutorService) {
+        this.findService = findService;
+        this.mavenManager = mavenManager;
+        this.repoService = repoService;
+        this.appConfig = appConfig;
+        this.downloadExecutorService = downloadExecutorService;
+    }
 
     @Override
     public void downloadArtifactWithDependencies(String repoName, String dependecyString) {
+
         CompletableFuture.runAsync(() ->
-                asyncDownloadWithDependency(repoName, dependecyString)
+                        asyncDownloadWithDependency(repoName, dependecyString),
+                downloadExecutorService
         );
     }
 
@@ -50,19 +66,18 @@ public class DownloadServiceImpl implements DownloadService {
 
     @SneakyThrows
     private void tryDownloadArtefact(RepoDto repoDto, Artefact artefact) {
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < appConfig.getDownloadAttempts(); i++) {
             try {
                 Repository repository = new Repository(repoDto.name(), repoDto.url());
                 downloadArtefact(repository, artefact);
                 return;
             } catch (Exception e) {
                 log.error("Download artefact failed: attempt {}", i + 1, e);
-                TimeUnit.MICROSECONDS.sleep(500);
+                TimeUnit.MICROSECONDS.sleep(appConfig.getAttemptTimeout());
             }
         }
     }
 
-    @SneakyThrows
     private void downloadArtefact(RepoDto repoDto, ArtefactId artefactId) {
         Repository repository = new Repository(repoDto.name(), repoDto.url());
         Artefact artefact = findService.findArtefactWithFiles(repository, artefactId);
@@ -70,7 +85,6 @@ public class DownloadServiceImpl implements DownloadService {
         log.info("{} is downloaded", artefact.getId());
     }
 
-    @SneakyThrows
     private void downloadArtefact(Repository repository, Artefact artefact) {
         artefact.getFiles()
                 .stream()
